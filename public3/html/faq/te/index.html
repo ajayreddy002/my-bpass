@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="te">
+  <!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+  <head>
+    <title>FAQ</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../../css/aos.css" />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/5ed1245a8ee2956d73a5cd0d/default';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <!-- Apply Modal -->
+    <div
+      class="modal row fade"
+      id="applyNowModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="applyNowModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+          <div class="modal-header">
+            <h5 class="modal-title" id="applyNowModalLabel">Apply For</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body row text-center">
+            <div class="col-6 ">
+              <a
+                href="/application/new"
+                type="button"
+                class="btn btn-primary text-white px-3 py-3 mr-1"
+                >Building Permissions</a
+              >
+            </div>
+            <div class="col-6">
+              <a
+                href="../../../en/self-certification/layout"
+                type="button"
+                class="btn btn-primary text-white px-3 py-3"
+                >Layout Permissions</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Language Selection Modal-->
+    <div
+      class="modal row fade"
+      id="languageSelectionModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="languageSelectionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+          <div class="modal-header">
+            <h5 class="modal-title" id="languageSelectionModalLabel">
+              Choose your language
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body row text-center">
+            <div class="col-4">
+              <button
+                onclick="setLanguageAndRedirect('en')"
+                type="button"
+                class="btn btn-primary text-white px-4 py-2"
+              >
+                English
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                onclick="setLanguageAndRedirect('te')"
+                type="button"
+                class="btn btn-primary text-white px-4 py-2"
+              >
+                తెలుగు
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                onclick="setLanguageAndRedirect('ur')"
+                type="button"
+                class="btn btn-primary text-white px-4 py-2"
+              >
+                اردو
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="site-wrap" id="home-section">
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+      <header
+        class="site-navbar js-sticky-header site-navbar-target"
+        role="banner"
+        id="header-tsbpass"
+      >
+        <div class="container-fluid">
+          <div class="row align-items-center position-relative">
+            <div class="site-logo">
+              <a href="index.html" class="text-black"
+                ><img
+                  src="../../images/logo.png"
+                  class="img img-fluid"
+                  id="tsbpass-logo"
+                /><span class="text-primary ml-2">TS-bPASS</span></a
+              >
+              <p id="date"></p>
+            </div>
+            <div class="col-12">
+              <nav
+                class="site-navigation text-right ml-auto "
+                role="navigation"
+              >
+                <ul
+                  class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block"
+                >
+                  <li style="order:2;">
+                    <a href="../../te/index.html" class="nav-link">హోమ్</a>
+                  </li>
+                  <li style="order:3;">
+                    <a href="../../te/index.html#about-section" class="nav-link"
+                      >చట్టాలు / నియమాలు</a
+                    >
+                  </li>
+                  <li style="order:4;">
+                    <a href="../faq/te/index.html" class="nav-link active"
+                      >ఎఫ్ ఎ క్య</a
+                    >
+                  </li>
+                  <li style="order:5;">
+                    <a
+                      href="http://dcrportal.telangana.gov.in"
+                      class="external"
+                      target="_blank"
+                    >
+                      Portal Auto DCR
+                    </a>
+                  </li>
+                  <!-- <li class="dropdown" style="order:6;">
+                    <a
+                      class="dropdown-toggle internal"
+                      data-toggle="dropdown"
+                      href="#"
+                      >సంప్రదించండి</a
+                    >
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a
+                          href="../../te/index.html#contact-section"
+                          class="nav-link"
+                          >Get in touch</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="http://tsbpass.com/support"
+                          class="external"
+                          target="_blank"
+                          >Support</a
+                        >
+                      </li>
+                    </ul>
+                  </li> -->
+                  <li style="order:6;">
+                    <a
+                      href="../../te/index.html#contact-section"
+                      class="nav-link"
+                    >
+                      మమ్మల్ని సంప్రదించండి</a
+                    >
+                  </li>
+                  <a
+                    data-toggle="modal"
+                    data-target="#applyNowModal"
+                    class="btn btn-primary text-white px-4"
+                    style="order:6;cursor: pointer;"
+                    ><span>ఇప్పుడు దరఖాస్తు</span>
+                  </a>
+                  <li style="order:1;">
+                    <a
+                      data-toggle="modal"
+                      data-target="#languageSelectionModal"
+                    >
+                      <i class="language-selector icon-g_translate"></i>
+                    </a>
+                  </li>
+                  <!-- <li>
+                    <select
+                      onchange="this.options[this.selectedIndex].value && setLanguageAndRedirect(this.options[this.selectedIndex].value);"
+                      style="margin-left:5px"
+                    >
+                      <option value="en">English</option>
+                      <option value="te" selected>Telugu</option>
+                      <option value="ur">Urdu</option>
+                    </select>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+            <div
+              class="toggle-button d-inline-block d-lg-none"
+              style="z-index: 10;"
+            >
+              <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+                ><span class="icon-menu h3"></span
+              ></a>
+            </div>
+            <div class="row support">
+              <div>
+                <span class="icon-phone"> </span
+                ><span
+                  ><a href="tel:040-23314622" class="text-black"
+                    >040-2331 4622</a
+                  ></span
+                >
+                <span class="ml-2 mr-2 icon-users"></span
+                ><span class="mr-2"
+                  ><a href="http://tsbpass.com/support">మద్దతు</a></span
+                >
+                <button id="btn-decrease">A-</button>
+                <button id="btn-orig">A</button>
+                <button id="btn-increase">A+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="sub-header">
+        <div class="announcement">
+          <div>ప్రకటన</div>
+          <marquee direction="left">
+            తెలంగాణ స్టేట్ బిల్డింగ్ పర్మిట్ అండ్ సెల్ఫ్ సర్టిఫికేషన్ సిస్టమ్
+          </marquee>
+        </div>
+      </div>
+      <div class="site-section" id="faq-section">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>Frequently Asked Questions</h2>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>సాధారణ ప్రశ్నలు</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >TS-bPASS అంటే ఏమిటి?
+                </h3>
+                <p>
+                  తెలంగాణ స్టేట్ లేఅవుట్ & బిల్డింగ్ పర్మిషన్ ఆమోదం మరియు స్వీయ
+                  ధృవీకరణ వ్యవస్థ. ఈ వ్యవస్థలో అన్ని లేఅవుట్ & భవన అనుమతులు
+                  ఆన్‌లైన్ ద్వారా ప్రాసెస్ చేయబడతాయి మరియు పారవేయబడతాయి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>
+                  సింగిల్ విండో సిస్టమ్ అంటే ఏమిటి?
+                </h3>
+                <p>
+                  సింగిల్ విండో సిస్టమ్ అనేది అవసరమైన పత్రాలు మరియు ఫీజుల
+                  సమర్పణపై వివిధ సేవలను అభ్యర్థించడం కోసం ఒకే సంప్రదింపుల వలె
+                  పనిచేయడానికి వివిధ ప్రక్రియలు మరియు ఆమోదాలను (ఎన్‌ఓసి)
+                  క్రమబద్ధీకరించడం ద్వారా ఆన్‌లైన్ ద్వారా అనుమతుల కోసం అన్ని
+                  లేఅవుట్ మరియు నిర్మాణ అనువర్తనాలను ప్రాసెస్ చేసే సౌకర్యం.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >స్వీయ ధృవీకరణ అంటే ఏమిటి మరియు ఇది ఎక్కడ వర్తిస్తుంది?
+                </h3>
+                <p>
+                  స్వీయ ధృవీకరణ అనేది నియమాలు మరియు నిబంధనలకు అనుగుణంగా ఉన్న
+                  ప్రతిపాదనలు మరియు పత్రాలకు సంబంధించి దరఖాస్తుదారు
+                  సమర్పించాల్సిన ప్రకటన.
+                </p>
+                <p>
+                  ‘స్వీయ ధృవీకరణ’ వ్యవస్థ వర్తిస్తుంది - ప్లాట్ సైజులో 500 చదరపు
+                  మీటర్లు మరియు 10 మీటర్ల ఎత్తు వరకు నిర్మించిన వ్యక్తిగత నివాస
+                  భవనాల కోసం మరియు మాస్టర్ ప్లాన్ / డిటైల్డ్ ప్లానింగ్ స్కీమ్ /
+                  లోకల్ ఏరియా ప్లాన్ మరియు భవన నియమాలకు అనుగుణంగా ఉండే
+                  ప్రతిపాదన. మాస్టర్ ప్లాన్ / వివరణాత్మక ప్రణాళిక పథకం / లోకల్
+                  ఏరియా ప్లాన్ మరియు లేఅవుట్ నిబంధనలకు అనుగుణంగా ఉండే లేఅవుట్
+                  ప్రతిపాదనల కోసం.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >‘స్వీయ ధృవీకరణ’ కోసం అవసరాలు ఏమిటి?
+                </h3>
+                <p>
+                  కిందివి ‘స్వీయ ధృవీకరణ’ కోసం అవసరమైనవి
+                </p>
+                <p>
+                  1) ఆన్‌లైన్ దరఖాస్తు ఫారమ్‌తో పాటు ప్లాట్లు మరియు అంతస్తుల
+                  పరిమాణం మరియు ప్రతిపాదిత ప్రణాళిక యొక్క EC మరియు PDF పత్రంతో
+                  సహా యాజమాన్య పత్రం గురించి స్వీయ ధృవీకరణ.
+                </p>
+                <p>
+                  2) తప్పుడు డిక్లరేషన్ విషయంలో వ్యక్తిగత జవాబుదారీతనం మరియు
+                  బాధ్యత గురించి స్వీయ ధృవీకరణతో సమర్పించడం.
+                </p>
+                <p>
+                  3) మంజూరు చేసిన ప్రణాళిక ఉల్లంఘనలకు సంబంధించి
+                  సమర్పించినట్లయితే, ప్రభుత్వం లేదా కమిషనర్ లేదా అధికారం కలిగిన
+                  ఏజెన్సీ ఎటువంటి నోటీసు జారీ చేయకుండా కూల్చివేతను తీసుకుంటుంది.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >సింగిల్ విండో సిస్టమ్ యొక్క ఉపయోగం?
+                </h3>
+                <p>
+                  500 చదరపు మీటర్ల పైన మరియు 10 మీటర్ల ఎత్తులో ఉన్న ప్లాట్ సైజు
+                  కోసం ఒకే విండో వ్యవస్థ మరియు అన్ని వాణిజ్య భవనాలు, హై రైజ్
+                  భవనాలు, గ్రూప్ డెవలప్మెంట్ స్కీమ్స్, గ్రూప్ హౌసింగ్,
+                  అపార్ట్మెంట్ కాంప్లెక్స్, మల్టీప్లెక్స్, నాన్-రెసిడెన్షియల్
+                  భవనాలు మరియు ఇతర నిర్మాణాలు ఉండాలి. బహుళ NOC లు అవసరం,
+                  సూచించిన విధంగా వెబ్ ఆధారిత ఆన్‌లైన్ వ్యవస్థ ద్వారా ఒక సాధారణ
+                  దరఖాస్తు ఫారం సమర్పించబడుతుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >సింగిల్ విండో సిస్టమ్ కోసం అవసరాలు ఏమిటి?
+                </h3>
+                <p>
+                  ఆన్‌లైన్ దరఖాస్తును అన్ని అవసరమైన పత్రాలతో సూచించినట్లు
+                  సమర్పించాలి.
+                </p>
+                <p>
+                  అటువంటి పత్రాలన్నీ సమర్పించకపోతే ఆన్‌లైన్ వ్యవస్థ దరఖాస్తును
+                  అంగీకరించదు. సమర్పించిన తరువాత ఇటువంటి పత్రాలు ఈ ప్రయోజనం కోసం
+                  ఏర్పాటు చేసిన సింగిల్ విండో కమిటీ చేత పరిశీలించబడతాయి మరియు
+                  లోపాలు లేదా అసంపూర్ణత లేదా మరింత సమాచారం లేదా స్పష్టత
+                  అవసరమయ్యే సందర్భాలు సమర్పించిన తేదీ నుండి 10 రోజులలోపు
+                  దరఖాస్తుదారునికి తెలియజేయబడతాయి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >సింగిల్ విండో సిస్టమ్ ద్వారా కమ్యూనికేషన్ లేనప్పుడు ఏమి
+                  జరుగుతుంది?
+                </h3>
+                <p>
+                  నిర్దేశించిన సమయానికి భవనం దరఖాస్తుపై ఎటువంటి ఉత్తర్వులు జారీ
+                  చేయకపోతే, అప్పుడు సూచించినట్లుగా ఆమోదం జారీ చేయబడినట్లు
+                  పరిగణించబడుతుంది
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>లేఅవుట్ అనుమతులు</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >వాటర్ బాడీకి ఆనుకొని ఉన్న 5-00 ఎకరాల భూమిని కొన్నాను. లేఅవుట్
+                  అనుమతి కోసం నేను దరఖాస్తు చేయవచ్చా?
+                </h3>
+                <p>
+                  మీరు స్వీయ-ధృవీకరణ వ్యవస్థలో లేఅవుట్ అనుమతి కోసం దరఖాస్తు
+                  చేసుకోవచ్చు, ఇది నీటిపారుదల శాఖ మరియు రెవెన్యూ శాఖతో సహా
+                  సూచించిన సభ్యులతో కూడిన జిల్లా కలెక్టర్ నేతృత్వంలోని జిల్లా
+                  స్థాయి కమిటీచే పరిశీలించబడుతుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >మాస్టర్ ప్లాన్ ప్రకారం పరిరక్షణ మండలంలో ఉన్న భూమి, లేఅవుట్
+                  ఆమోదానికి అర్హత ఉందా?
+                </h3>
+                <p>
+                  లేదు, జోనింగ్ నిబంధనల ప్రకారం పరిరక్షణ జోన్‌లో లేఅవుట్లు
+                  అనుమతించబడవు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>నా
+                  భూమి హై టెన్షన్ టవర్ లైన్ ప్రక్కనే ఉంది. నేను లేఅవుట్ అనుమతి
+                  పొందవచ్చా?
+                </h3>
+                <p>
+                  అవును, నిబంధనల ప్రకారం, టవర్ లైన్ల క్రింద, టవర్ బేస్ యొక్క
+                  వెడల్పు వరకు ఉన్న భూమిని పచ్చదనం వలె అభివృద్ధి చేయాలి మరియు
+                  టవర్ బేస్ నుండి, ఇరువైపులా 10 మీటర్ల వెడల్పు గల రోడ్లు
+                  అందించబడతాయి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >లేఅవుట్ ఆమోదం కోసం అవసరమైన ఓపెన్ స్పేస్ / పార్క్ మరియు ఇతర
+                  అవసరాల శాతం ఎంత?
+                </h3>
+                <p>
+                  ఏదైనా లేఅవుట్లలో, మీరు ఉద్యానవనాలు మరియు ఆట స్థలాల కోసం 7.5%,
+                  సామాజిక మౌలిక సదుపాయాల కోసం 1.00%, నీటి నిల్వ, సెప్టిక్
+                  ట్యాంక్ / మురుగునీటి శుద్ధి కర్మాగారం, ఎలక్ట్రిక్
+                  ట్రాన్స్ఫార్మర్, ఘన వ్యర్థ పదార్థాల నిర్వహణ వంటి యుటిలిటీలకు
+                  1.00% అందించాలి. వాహన నిలుపుదల చోటు.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >లేఅవుట్ ఆమోదం కోసం 25’-00 ”అంతర్గత రహదారులు అనుమతించబడతాయా?
+                </h3>
+                <p>
+                  లేదు, అంతర్గత రహదారుల కనీస వెడల్పు 12.00 మీటర్లు / 40’-00
+                  ”వెడల్పు ఉండాలి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >లేఅవుట్ ఆమోదం పొందిన తరువాత, నేను అన్ని లేఅవుట్ ప్లాట్లను
+                  అమ్మవచ్చా?
+                </h3>
+                <p>
+                  లేదు, మీరు ప్లాట్ చేసిన ప్రదేశంలో 85% మాత్రమే అమ్మవచ్చు.
+                  ఆమోదించిన ముసాయిదా తాత్కాలిక లేఅవుట్ ప్రణాళికలో
+                  సూచించినట్లుగా, లేఅవుట్ యజమాని సంబంధిత మున్సిపాలిటీతో కనీసం
+                  15% తనఖా పెట్టాలి. ఈ 15% తనఖా పెట్టిన ప్రాంతాన్ని అవసరమైన
+                  రుసుము మరియు ఛార్జీల చెల్లింపు సమ్మతిపై జిల్లా స్థాయి TSBPASS
+                  కమిటీ విడుదల చేస్తుంది. విడిచిపెట్టిన తనఖా దస్తావేజు కాపీని
+                  స్వీకరించడం.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >లేఅవుట్‌లను మంజూరు చేయడానికి మునిసిపాలిటీలు / మునిసిపల్
+                  కార్పొరేషన్లకు అధికారం ఉందా?
+                </h3>
+                <p>
+                  లేదు, 2.50 ఎకరాల వరకు జిల్లా స్థాయి టిఎస్‌బిపిఎఎస్ఎస్ కమిటీ
+                  మరియు 2.5 ఎకరాలకు పైన ఉన్న రాష్ట్ర స్థాయి కమిటీకి లేఅవుట్
+                  మంజూరు చేయడానికి అధికారం ఉంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>నా
+                  సైట్ కచా రహదారికి చేరుకుంటుంది, లేఅవుట్ ఆమోదించబడుతుందా?
+                </h3>
+                <p>
+                  అవును, కానీ మీరు డ్రాఫ్ట్ లేఅవుట్ విడుదల సమయంలో WBM రహదారిని
+                  ఏర్పాటు చేయాలి మరియు తుది లేఅవుట్ ఆమోదం పొందే ముందు అంతర్గత
+                  రహదారులతో పాటు BT రహదారిని ఏర్పాటు చేయాలి.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>భవన అనుమతి</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >TS-bPASS ద్వారా భవన అనుమతులను ఎలా పొందాలి?
+                </h3>
+                <p>
+                  దరఖాస్తుదారు చెక్ జాబితా ప్రకారం అవసరమైన పత్రాలను అప్‌లోడ్
+                  చేయవలసి ఉంటుంది. మరియు TS-bPASS ఆన్‌లైన్ సిస్టమ్ ద్వారా DT&CP
+                  వినియోగదారు ఛార్జీలు. అనగా, (htttp //:
+                  tsbpass.telangana.gov.in).
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఎవరు రిజిస్ట్రేషన్ చేసుకోవచ్చు మరియు రూ .1 / - రిజిస్ట్రేషన్
+                  ఫీజు చెల్లించాలి?
+                </h3>
+                <p>
+                  ప్లాట్ సైజులో 75 చదరపు గజాల (63 స్క్వేర్ మీటర్లు) మరియు
+                  గ్రౌండ్ లేదా గ్రౌండ్ + 1 పై అంతస్తు నిర్మాణానికి ఎటువంటి
+                  అనుమతి అవసరం లేదు, అయితే దరఖాస్తుదారుడు టిఎస్‌బిపాస్ వెబ్
+                  పోర్టల్ ద్వారా ఆన్‌లైన్‌లో నమోదు చేసుకోవాలి మరియు
+                  రిజిస్ట్రేషన్ ఫీజును మొదట చెల్లించవచ్చు ఆస్తి పన్ను రసీదు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >నేను ఆమోదించని లేఅవుట్లో 150 చదరపు మీటర్ల ప్లాట్లు కొనుగోలు
+                  చేసాను, భవన అనుమతి కోసం నేను దరఖాస్తు చేయాలా?
+                </h3>
+                <p>
+                  అవును, మీరు అనుమతి కోసం దరఖాస్తు చేసుకోవచ్చు మరియు స్వీయ
+                  ధృవీకరణ వ్యవస్థ ద్వారా ఆన్‌లైన్ అనుమతి పొందవచ్చు, కాని పాత
+                  మున్సిపాలిటీలలో 28-10-2015లో లేదా అంతకు ముందు రిజిస్టర్
+                  చేయబడిన సేల్ డీడ్ పత్రాలు మరియు GOM ల ప్రకారం 30-03-2018 లేదా
+                  అంతకు ముందు నమోదు చేయబడ్డాయి. కొత్తగా ఏర్పడిన మునిసిపాలిటీలకు
+                  251 ఎంఏ డిటి: 14-10-2019, 261 ఎంఎ డిటి 29-10-2019 & 265 ఎంఎ
+                  డిటి: 08-11-2019 మాత్రమే పరిగణించబడతాయి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >భవనం అనుమతి మరియు లేఅవుట్ అనుమతి కోసం వర్తించకపోతే పరిణామాలు
+                  ఏమిటి?
+                </h3>
+                <p>
+                  టిఎంఎ చట్టం, 2019 లోని సెక్షన్ 174 (4) లోని నిబంధనల ప్రకారం
+                  నోటీసు ఇవ్వకుండా జిల్లా కలెక్టర్ నేతృత్వంలోని జిల్లా స్థాయి
+                  ఫోర్స్ కమిటీ అటువంటి చట్టవిరుద్ధమైన అమలు చేయబడిన భవనం /
+                  లేఅవుట్ను కూల్చివేస్తుంది.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >నేను చెల్లుబాటు అయ్యే అనుమతితో 200 చదరపు మీటర్ల ప్లాట్
+                  ఏరియాలో G + 1 ని నిర్మించాను, నేను ఆక్యుపెన్సీ సర్టిఫికేట్
+                  కోసం దరఖాస్తు చేయాలా?
+                </h3>
+                <p>
+                  లేదు, 200 చదరపు మీటర్ల వరకు ప్లాట్ల ప్రాంతంలో వ్యక్తిగత నివాస
+                  భవనం విషయంలో ఆక్యుపెన్సీ సర్టిఫికేట్ జారీ. 7.00 మీటర్ల ఎత్తుతో
+                  ఆక్యుపెన్సీ సర్టిఫికెట్ దరఖాస్తు కోసం మినహాయింపు ఇవ్వబడింది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >అనుమతి అని భావించడం ఏమిటి?
+                </h3>
+                <p>
+                  21 రోజుల వ్యవధిలో అనుమతి ఇవ్వకపోతే, అలాంటి అనుమతి డీమ్డ్
+                  అనుమతిగా పరిగణించబడుతుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >సమర్పించిన చెల్లని పత్రాల ద్వారా నా పొరుగు భవనం అనుమతి
+                  పొందింది మరియు స్టేట్మెంట్ యొక్క వాస్తవాలను తప్పుగా
+                  సూచించింది, చర్య ఏమిటి?
+                </h3>
+                <p>
+                  వాస్తవాలను తప్పుగా సూచించడం ద్వారా లేదా భవన నియమాలు, జోనింగ్
+                  నిబంధనలు, మాస్టర్ ప్లాన్ భూ వినియోగ నిబంధనలు మొదలైనవి
+                  నిర్మించడం ద్వారా డీమ్డ్ ఆమోదం పొందబడితే, అలాంటి అనుమతి 21
+                  రోజుల్లోపు మునిసిపల్ కమిషనర్ రద్దు చేయబడుతుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>నా
+                  ప్లాట్లు నది, వాగు, సరస్సు, చెరువు, కుంటా, నాలా వంటి నీటి
+                  వనరుల మంచంలో పడుతున్నాయి. భవనం అనుమతి కోసం నేను దరఖాస్తు
+                  చేయాలా?
+                </h3>
+                <p>
+                  లేదు, నీటి వనరుల మంచంలో పడే ప్లాట్లు F.T.L. నది, వాగు, సరస్సు,
+                  చెరువు, కుంటా, నాలా మొదలైనవి. నోటిఫైడ్ మాస్టర్ ప్లాన్ ప్రకారం,
+                  అటువంటి భవన నిర్మాణ దరఖాస్తులను అనుమతి కోసం పరిగణించలేము.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >నది, వాగు, సరస్సు, చెరువు, కుంటా, నాలా మొదలైన నీటి వనరులకు ఈ
+                  ప్లాట్లు విస్తరిస్తుంటే, భవనం అనుమతి ఇవ్వవచ్చా?
+                </h3>
+                <p>
+                  NOC required from irrigation and revenue departments.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>ఫైల్ ప్రాసెసింగ్ కోసం సేవా స్థాయి విధానం</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >భవన దరఖాస్తును సమర్పించడానికి నేను ఎవరిని సంప్రదించాలి?
+                </h3>
+                <p>
+                  ఆన్‌లైన్ పోర్టల్ - TS-bPASS ద్వారా మీరు నేరుగా మీ దరఖాస్తును
+                  సమర్పించవచ్చు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >దరఖాస్తును అప్‌లోడ్ చేయడానికి అధికారం ఉన్న వ్యక్తులు ఎవరు?
+                </h3>
+                <p>
+                  దరఖాస్తుదారుడు ఆన్‌లైన్ టిఎస్‌బిపాస్ పోర్టల్‌లో నమోదు
+                  చేసుకున్న తర్వాత దరఖాస్తును అప్‌లోడ్ చేయవచ్చు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >దరఖాస్తు సమయంలో చెల్లించాల్సిన చెల్లింపు ఏమిటి?
+                </h3>
+                <p>
+                  ప్రారంభ ప్రాసెసింగ్ ఛార్జీలు భవనం అనుమతి యొక్క రకాన్ని బట్టి,
+                  అప్లికేషన్‌ను అప్‌లోడ్ చేసేటప్పుడు తెలుస్తుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >భవన ప్రణాళికలను లోడ్ చేయడానికి ఆర్కిటెక్ట్ యొక్క సేవలు
+                  తీసుకోవాలా.
+                </h3>
+                <p>
+                  ఇది దరఖాస్తుదారుడిదే
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >వేర్వేరు ప్లాట్ పరిమాణాల కోసం ఏదైనా ప్రామాణిక భవన ప్రణాళికలు
+                  అందుబాటులో ఉన్నాయా?
+                </h3>
+                <p>
+                  ప్రామాణిక భవన ప్రణాళికలు పోర్టల్‌లో అందుబాటులో ఉన్నాయి.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >నేను భవన రుసుమును ఎప్పుడు చెల్లించాలి
+                </h3>
+                <p>
+                  ఇది ఫీజు సమాచారం లేఖ వచ్చిన తరువాత ఉంటుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >నేను పట్టణ స్థానిక సంస్థ నుండి ప్రణాళిక యొక్క ఆమోదించిన
+                  హార్డ్ కాపీని పొందుతాను.
+                </h3>
+                <p>
+                  లేదు. మీరు వెబ్‌సైట్ పోర్టల్ నుండి డౌన్‌లోడ్ చేసుకోవచ్చు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఆమోదించబడిన భవన అనుమతిని నేను ఎలా ధృవీకరించగలను?
+                </h3>
+                <p>
+                  భవనం దరఖాస్తు సంఖ్యను కోట్ చేయడం ద్వారా, ఆమోదించబడిన భవనం
+                  అనుమతి కాపీని డౌన్‌లోడ్ చేసుకోవచ్చు
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >డిజిటల్ ఆమోదించిన భవన ప్రణాళికలు ఆర్థిక సంస్థల నుండి రుణం
+                  పొందటానికి అర్హమైనవి.
+                </h3>
+                <p>
+                  అవును
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>సమయపాలన</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఎన్ని రోజుల్లో, భవనం అనుమతి ప్రాసెస్ చేయబడుతుంది?
+                </h3>
+                <p>
+                  21 రోజులు
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >అనుమతి అని భావించడం ఏమిటి?
+                </h3>
+                <p>
+                  21 రోజుల్లో దరఖాస్తు ప్రాసెస్ చేయకపోతే, భవనం అనుమతి మంజూరు
+                  చేయబడినట్లు దస్తావేజు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఫీజు చెల్లించడానికి కాలపరిమితి.
+                </h3>
+                <p>
+                  దరఖాస్తుదారుడు 15 రోజులలోపు రుసుము చెల్లించటానికి కట్టుబడి
+                  ఉండాలి మరియు 15 రోజులలోపు చెల్లింపు చేయకపోతే, దరఖాస్తుదారుడు
+                  10% వడ్డీని చెల్లించి మరో 15 రోజులలోపు చెల్లించాలి.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >కొరత సమాచార సమ్మతి కోసం కాలపరిమితి.
+                </h3>
+                <p>
+                  15 రోజులు
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >కొరత సమాచారం సమయ పరిమితుల్లో ఇవ్వకపోతే, నా భవనం అనువర్తనం
+                  యొక్క స్థితి ఏమిటి?
+                </h3>
+                <p>
+                  అప్లికేషన్ స్వయంచాలకంగా తిరస్కరించబడుతుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఎన్ని రోజుల్లో ఫిర్యాదు చేసినా పరిష్కరించబడుతుంది.
+                </h3>
+                <p>
+                  ఒక వారం.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>పత్రాలు</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >భవనం అనుమతి కోసం అప్‌లోడ్ చేయవలసిన పత్రాలు ఏమిటి.
+                </h3>
+                <p>
+                  భవనం ప్రతిపాదన రకం ఆధారంగా, పత్రాల వివరాలు అప్‌లోడ్ చేయడానికి
+                  ప్రాంప్ట్ చేయబడతాయి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >గెజిటెడ్ అధికారి యొక్క ధృవీకరణ అవసరం?
+                </h3>
+                <p>
+                  దరఖాస్తుదారుల స్వీయ ధృవీకరణ ఆధారంగా దరఖాస్తులు ప్రాసెస్
+                  చేయబడుతున్నాయి మరియు అందువల్ల వర్తించదు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఆమోదించబడిన ప్రణాళికలు మరియు కార్యకలాపాలను ఎలా సేకరించాలి.
+                </h3>
+                <p>
+                  TSBPASS పోర్టల్ నుండి డౌన్‌లోడ్ చేసుకోవచ్చు.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>EC
+                  సమర్పించాలా?
+                </h3>
+                <p>
+                  అవును
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >సైట్ యాజమాన్యానికి సంబంధించి నాకు పన్ను రశీదులు మాత్రమే
+                  ఉన్నాయి. యాజమాన్య పత్రాలను నేను ఎలా సమర్పించగలను?
+                </h3>
+                <p>
+                  దరఖాస్తుదారు పన్ను రశీదులతో పాటు సంబంధిత యుఎల్‌బి నుండి
+                  యాజమాన్య ధృవీకరణ పత్రాన్ని పొందాలి
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >వాస్తవాలు మరియు తప్పుడు పత్రాలను తప్పుగా చూపించడం ద్వారా
+                  అనుమతి.
+                </h3>
+                <p>
+                  అనుమతి రద్దు చేయబడుతుంది మరియు భవనం కూల్చివేత, జరిమానా
+                  ఆరోపణలు, క్రిమినల్ ప్రొసీడింగ్ మొదలైన వాటి కోసం చర్యలు
+                  ప్రారంభించబడతాయి.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>అమలు</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >అనధికార నిర్మాణాలను నియంత్రించడానికి అమలు అధికారం ఎవరు?
+                </h3>
+                <p>
+                  జిల్లా కలెక్టర్ నేతృత్వంలో ప్రత్యేక టాస్క్‌ఫోర్స్.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >అనధికార భవనంపై దాఖలు చేసిన ఫిర్యాదుపై ఎన్ని రోజుల్లో చర్యలు
+                  తీసుకున్నారు.
+                </h3>
+                <p>
+                  15 రోజులు
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>నా
+                  ఫిర్యాదుపై తీసుకున్న చర్యతో నేను సంతృప్తి చెందకపోతే నేను
+                  ఎవరిని సంప్రదించాలి?
+                </h3>
+                <p>
+                  జిల్లా కలెక్టర్.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >మాన్యువల్ ప్రాసెస్ కాకుండా ఫిర్యాదులు దాఖలు చేయడానికి ఏదైనా
+                  విధానం ఉందా?
+                </h3>
+                <p>
+                  మీరు కాల్ సెంటర్ / మొబైల్ అనువర్తనం / వెబ్ / టోల్ ఫ్రీ నంబర్
+                  వంటి ఆన్‌లైన్ కన్సోల్‌ల ద్వారా ఫైల్ చేయవచ్చు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ఫిర్యాదు చేసే వ్యక్తి పేరు రహస్యంగా ఉంచబడుతుందా?
+                </h3>
+                <p>
+                  అవును
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >విచలనం లేని నిర్మాణంపై ప్రారంభించగల చర్యలు ఏమిటి.
+                </h3>
+                <p>
+                  భవనం యొక్క అనధికార భాగాన్ని కూల్చివేయడం, శిక్షా ఆరోపణలు,
+                  క్రిమినల్ ప్రొసీడింగ్ మొదలైనవి.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Will any notice issued before undertaking demolition of
+                  unauthorised constructions / deviations.
+                </h3>
+                <p>
+                  కాదు
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >కూల్చివేత ఖర్చును ఎవరు భరించాలి?
+                </h3>
+                <p>
+                  భూమి / భవన యజమాని.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >పార్కింగ్ ప్రాంతంలో నిర్మాణాలు చేయగలరా.
+                </h3>
+                <p>
+                  కాదు
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >ప్రత్యేక టాస్క్ ఫోర్స్ అంటే ఏమిటి?
+                </h3>
+                <p>
+                  స్పెషల్ టాస్క్ ఫోర్స్ అనేది ప్రతి జిల్లా స్థాయిలో జిల్లా
+                  కలెక్టర్ ఛైర్మెన్ షిప్ కింద ఒక ఎన్‌ఫోర్స్‌మెంట్ వింగ్, ఇది
+                  అనుమతి పొందకుండానే ఆమోదించబడిన ప్రణాళికలు మరియు భవనాల విచలనం
+                  లో అధికారం లేని లేఅవుట్ల భవనాలపై గుర్తింపు మరియు చర్యలను
+                  పర్యవేక్షిస్తుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >అనుమతి పొందిన ప్రణాళికకు విచలనం కలిగించే అనధికార లేఅవుట్ /
+                  భవనాలను ప్రత్యేక టాస్క్ ఫోర్స్ ఎలా గుర్తిస్తుంది?
+                </h3>
+                <p>
+                  ప్రత్యేక టాస్క్‌ఫోర్స్ ఎన్‌ఫోర్స్‌మెంట్ బృందాలు అనధికార భవనాలు
+                  / లేఅవుట్‌లను గుర్తించడానికి ప్రాంతాలను తరచుగా తనిఖీ చేస్తాయి.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>
+                  ఒక పౌరుడు అనధికార నిర్మాణం లేదా ఏదైనా ఫిర్యాదు గురించి పూర్తి
+                  / సమాచారం ఇవ్వగలరా?
+                </h3>
+                <p>
+                  పౌరుడు అనధికారిక భవనాలు లేదా ఉల్లంఘనలకు సంబంధించిన ఫిర్యాదులను
+                  ఆన్‌లైన్ కన్సోల్‌లైన కాల్ సెంటర్ / మొబైల్ యాప్ / టోల్ ఫ్రీ
+                  నంబర్ మొదలైన వాటి ద్వారా ఇవ్వవచ్చు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >మంజూరు చేసిన ప్రణాళికకు విచలనం కలిగించే భవనంపై చర్య ఏమిటి?
+                </h3>
+                <p>
+                  టాస్క్ ఫోర్స్ టీమ్ లీడర్ 10% కంటే తక్కువ విచలనం మరియు 10% కంటే
+                  ఎక్కువ విచలనం (కూర్చున్న మరియు వెనుక ఎదురుదెబ్బలకు సంబంధించి
+                  మాత్రమే) వర్గీకరణను నొక్కి చెబుతుంది మరియు భవనం అనుమతి రద్దు
+                  కోసం నిర్ణయం తీసుకోబడుతుంది మరియు అలాంటి చర్య తీసుకోవచ్చు భూమి
+                  విలువలో 25% జరిమానా విధించడం / మూడు సంవత్సరాల జైలు శిక్ష /
+                  నోటీసు లేకుండా కూల్చివేత.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >పార్కింగ్ స్థలం కోసం కేటాయించిన ప్రాంతంలో నిర్మించిన
+                  నిర్మాణానికి ఏదైనా జరిమానా నిబంధన ఉందా?
+                </h3>
+                <p>
+                  అవును, పార్కింగ్ కోసం కేటాయించిన ప్రాంతాన్ని ఇతర ఉపయోగం కోసం
+                  ఉంచినట్లయితే, రిజిస్ట్రేషన్ విభాగం నిర్ణయించిన భూమితో సహా భూమి
+                  లేదా భవనం యొక్క విలువలో 25% వరకు జరిమానా విధించవచ్చు, అది
+                  తక్కువ ఉంటే కూల్చివేత పక్కన చెప్పిన మొత్తంలో 50% కంటే ఎక్కువ.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >తప్పుడు ప్రకటన చేయడం ద్వారా లేదా వాస్తవాలను తప్పుగా చూపించడం
+                  ద్వారా స్వీయ ధృవీకరణ వ్యవస్థలో లేఅవుట్ లేదా భవనం కోసం అనుమతి
+                  పొందినట్లయితే చర్య ఏమిటి?
+                </h3>
+                <p>
+                  ఒకవేళ తప్పుడు ప్రకటన చేయడం లేదా వాస్తవాలను తప్పుగా చూపించడం
+                  ద్వారా అనుమతి పొందినట్లయితే అది ఉపసంహరించబడుతుంది / రద్దు
+                  చేయబడుతుంది మరియు కూల్చివేత కోసం చర్య యజమాని / బిల్డర్‌కు
+                  ఎటువంటి నోటీసు లేకుండా తీసుకోబడుతుంది.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >అనుమతి పొందటానికి ముందు నిర్మాణాన్ని ప్రారంభించవచ్చా?
+                </h3>
+                <p>
+                  లేదు, యజమాని / బిల్డర్ ULB నుండి అనుమతి తీసుకోకుండా భవనం లేదా
+                  లేఅవుట్ నిర్మాణాన్ని ప్రారంభించకూడదు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >గుర్తించిన భవనాలపై చర్యలు ప్రారంభించడానికి ఎన్ని రోజులు
+                  పడుతుంది లేదా ఏదైనా భవనం / లేఅవుట్‌పై ఏదైనా ఫిర్యాదు
+                  అందుతుంది?
+                </h3>
+                <p>
+                  గుర్తించిన కేసులను అటువంటి సమాచారం నుండి ఒక వారంలో పరిశీలించి
+                  తగిన చర్యలు ప్రారంభిస్తారు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >కూల్చివేత తరువాత తదుపరి చర్య ఏమిటి?
+                </h3>
+                <p>
+                  కూల్చివేత తరువాత:
+                </p>
+                <p>
+                  1. కూల్చివేత ఖర్చు యజమాని / బిల్డర్ నుండి తిరిగి పొందబడుతుంది.
+                </p>
+                <p>
+                  2. నిషేధిత రిజిస్టర్‌లో చేర్చడానికి రిజిస్ట్రేషన్ విభాగానికి
+                  సమాచారం అందించబడుతుంది.
+                </p>
+                <p>
+                  3. సంబంధిత విద్యుత్ / నీటి సరఫరా విభాగాలకు సంబంధిత ఆస్తికి
+                  తాత్కాలిక లేదా శాశ్వత సేవా కనెక్షన్ ఇవ్వవద్దని తెలియజేస్తారు.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>ఒక
+                  పౌరుడు ఫిర్యాదు ఇస్తే వ్యక్తికి ఏదైనా ముప్పు ఉందా?
+                </h3>
+                <p>
+                  లేదు, సమాచారం / ఫిర్యాదుల వివరాలు వెల్లడించలేదు.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="row align-items-center justify-content-center mb-3">
+        <div class="col-2">
+          <a href="https://lrsbrs.hmda.gov.in">LRS</a>
+        </div>
+        <div class="col-2">
+          <a
+            href="https://www.telangana.gov.in/departments/municipal-administration-and-urban-development"
+            >MAUD</a
+          >
+        </div>
+        <div class="col-2">
+          <a href="http://dpms.dtcp.telangana.gov.in/Login.aspx">HMDA</a>
+        </div>
+        <div class="col-2">
+          <a href="./index.html">Terms and conditions</a>
+        </div>
+        <div class="col-2">
+          <a href="./index.html">Website and usage policy</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <div class="border-top">
+              <p class="copyright">
+                Copyright ©2020 Telangana State Building Permission Approval and
+                Self Certification System. All Rights Reserved.
+              </p>
+              <p>
+                v1.5.1 (Last updated : 03/04/2020)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="../../js/jquery-3.3.1.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/popper.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/bootstrap.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/owl.carousel.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/jquery.sticky.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/jquery.waypoints.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/jquery.animateNumber.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/jquery.fancybox.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/jquery.easing.1.3.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/aos.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/moment.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/main.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/languageManager.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../../js/fontSizeChanger.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156171945-1');
+    </script>
+    <script
+      src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+      data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+      defer=""
+    ></script>
+    <script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      setInterval(function(){
+        document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+      }, 1000);
+    </script>
+    <script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      jQuery(document).ready(function(){
+          jQuery("#carousel").owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            margin: 0,
+            autoplayTimeout:2000,
+            autoplayHoverPause:false,
+            nav: false,
+            dots: false
+          });
+          var language = getSelectedLanguage();
+          if(language == '')
+            jQuery("#languageSelectionModal").modal('show');
+          else
+            redirectToLanguageHome(language)
+      });
+    </script>
+  </body>
+</html>

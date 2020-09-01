@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+<head>
+    <title>TS-bPASS, Self certification portal for Citizens</title>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <link
+            href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../css/aos.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/ticker.css" />
+</head>
+<!--Start of Tawk.to Script-->
+<script>setTimeout(function () { var e, t; e = document, (t = e.createElement("script")).type = "text/javascript", t.async = !0, t.setAttribute("data-botid", "iFSrs4Z_VvrF"), t.src = "https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v=" + Date.parse(new Date()), e.getElementsByTagName("body")[0].appendChild(t) }, 3e3);</script>
+<!--End of Tawk.to Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/ticker.js"></script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<!-- Apply Modal -->
+<div
+        class="modal row fade"
+        id="applyNowModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="applyNowModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered dropdown-popup" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-body row">
+                <div class="col-12">
+                    <a href="/application/new"
+                       type="button">Building Permission</a>
+                </div>
+                <div class="col-12">
+                    <a href="../../en/self-certification/layout"
+                       type="button">Layout Permission</a>
+                </div>
+                <div class="col-12">
+                    <a
+                            href="http://occupancycertificate.s3-website-eu-west-1.amazonaws.com/"
+                            type="button">Occupancy Certificate</a>
+                </div>
+                <div class="col-12">
+                    <a href="https://tsbpass.enforcement.srshta.com/Citizen_Complaint"
+                       type="button"> Enforcement</a>
+                </div>
+                <div class="col-12">
+                    <a href="/tsbpass.com/support"
+                       type="button">Land use Certificate </a>
+                </div>
+                <div class="col-12">
+                    <a href="tsbpass.com/support"
+                       type="button">Change of Land use</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Language selection modal-->
+<div
+        class="modal row fade"
+        id="languageSelectionModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="languageSelectionModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageSelectionModalLabel">
+                    Choose your language
+                </h5>
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body row text-center">
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('en')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        English
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('te')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        తెలుగు
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('ur')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        اردو
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header
+            class="site-navbar js-sticky-header site-navbar-target"
+            role="banner"
+            id="header-tsbpass"
+            style="margin-top: 0px;"
+    >
+        <div style="padding-left: 15px;">
+            <div class="row align-items-center position-relative">
+                <div class="row support">
+                    <p id="date" class='font-size-12'></p>
+                    <div class='support-inner'>
+                        <a target="_blank" href="tel:040-22666666" class='font-size-12'>040-22 66 66 66</a>
+                        <a target="_blank" href="/html/en/faq.html" class=' font-size-12'>FAQs</a>
+                        <a href="http://tsbpass.com/support" target="_blank"
+                           class='text-uppercase font-size-12 external'>Support</a>
+                        <a class='language-wrapper' data-toggle="modal" data-target="#languageSelectionModal">
+                            <span class='text-uppercase font-size-12'>Language</span>
+                            <img src='../images/language.svg' class='language' alt='language' />
+                        </a>
+                        <button id="btn-decrease">A-</button>
+                        <button id="btn-orig">A</button>
+                        <button id="btn-increase">A+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <div id="header"></div>
+<div>
+    <marquee behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();"
+        style="font-size: 20px;color: red; font-family: 'Work Sans';">This site is only for testing purpose, please
+        visit <a href="http://tsbpass.telangana.gov.in/html/en/index.html">TS-bPASS</a> for building permissions
+    </marquee>
+</div>
+
+<div class="tickercontainer">
+    <div id="newsScroll" class="ticker1 modern-ticker mt-round">
+        <div class="mt-body">
+            <div class="mt-label">
+                 News
+            </div>
+            <div class="mt-news" style="left: 105px; width: 932px;">
+                <ul>
+                    
+                    <li><a href="https://www.thehindu.com/news/cities/Hyderabad/ts-bpass-soon-for-building-permissions-ktr/article30755504.ece" target="blank">TS-bPASS for building permissions.</a></li>
+                    <li><a href="https://www.thehansindia.com/telangana/hyderabad-ts-bpass-to-be-in-force-from-next-month-622521 " target="blank">Online Building Approvals in Telangana.</a></li>
+                    <li><a href="https://www.ntnews.com/siddipet/2020-06-05-41860" target="blank">Building house is now easy.</a></li>
+                    <li><a href="https://ythisnews.com/ts-bpass-to-be-implemented-after-approval-from-cabinet/" target="blank">TS-bPASS aims to obtain building approvals in a time-bound and transparent manner.</a></li>
+                </ul>
+            </div>
+            <div class="mt-controls">
+                <div class="mt-prev"></div>
+                <div class="mt-play"></div>
+                <div class="mt-next"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+    <div id="carousel" class="owl-carousel owl-theme banner" style="padding-top:12px;">
+
+        <div class="item banner-item">
+            <div class="ftco-blocks-cover-1">
+                <div class="row align-items-center">
+                    <div class="banner-item-description">
+                        <h1>TS-bPASS</h1>
+                        <p class="mb-5" style="font-size:14px;max-width: 560px;">
+                            Telangana State Building Permission Approval and Self-Certification System
+                        </p>
+                        <p>
+                            Registration for plot size up to 75 square yards  and the construction of ground or ground plus one
+                            floor (Residential) that are exempted from obtaining Building Permission Approval.
+                        </p>
+                        <!-- <div class="form-group d-flex">
+                            <button
+                                    class="btn"
+                                    data-toggle="modal"
+                                    data-target="#applyNowModal">
+                                <span>Apply Now</span>
+                            </button>
+                        </div> -->
+                    </div>
+                    <div class="banner-item-image">
+                        <img src='../images/background_durgam.jpg' alt='background'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item banner-item">
+            <div class="ftco-blocks-cover-1">
+                <div class="row align-items-center">
+                    <div class="banner-item-description">
+                        <h1>TS-bPASS</h1>
+                        <p class="mb-5" style="font-size:14px;max-width: 560px;">
+                            Telangana State Building Permission Approval and Self-Certification System 
+                        </p>
+                        <p>
+                            Instant online building permission approval for plot size up to 500 square meters and height up to 10 meters (Residential).
+                        </p>
+                        <!-- <div class="form-group d-flex">
+                            <button
+                                    class="btn"
+                                    data-toggle="modal"
+                                    data-target="#applyNowModal">
+                                <span>Apply Now</span>
+                            </button>
+                        </div> -->
+                    </div>
+                    <div class="banner-item-image">
+                        <img src='../images/background2.jpg' alt='background'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item banner-item">
+            <div class="ftco-blocks-cover-1">
+                <div class="row align-items-center">
+                    <div class="banner-item-description">
+                        <h1>TS-bPASS</h1>
+                        <p class="mb-5" style="font-size:14px;max-width: 560px;">
+                            Telangana State Building Permission Approval and Self-Certification System 
+                        </p>
+                        <p>
+                            Single window building permission approval for plot size above 500 square meters and height above 10 meters (Residential & Non-Residential)
+                        </p>
+                        <!-- <div class="form-group d-flex">
+                            <button
+                                    class="btn"
+                                    data-toggle="modal"
+                                    data-target="#applyNowModal">
+                                <span>Apply Now</span>
+                            </button>
+                        </div> -->
+                    </div>
+                    <div class="banner-item-image">
+                        <img src='../images/background1.jpg' alt='background'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ftco-blocks-cover-1">
+            <div class="row align-items-center">
+                <div class="banner-item-description">
+                    <h1>TS-bPASS</h1>
+                    <p class="mb-5" style="font-size:14px;max-width: 590px;">
+                        Telangana State Building Permission Approval and Self-Certification System 
+                    </p>
+                    <p> Occupancy certificate for individual residential buildings constructed in plots of above 240 sq yds (200 sq mts) and upto 600 sq yds (500 sq mts) and height upto 10mts (ground +2 floors).
+                    </p>
+                    <!-- <div class="form-group d-flex">
+                        <button
+                                class="btn"
+                                data-toggle="modal"
+                                data-target="#applyNowModal">
+                            <span>Apply Now</span>
+                        </button>
+                    </div> -->
+                </div>
+                <div class="banner-item-image">
+                    <img src='../images/background_amazon.jpg' alt='background'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="block__73694 border-top" id="why-us-section">
+    <div class='why-us-section'>
+        <div class="container">
+            <div class="row d-flex no-gutters align-items-stretch">
+                <div
+                        class="mr-auto ml-auto mt-4 mt-lg-0 order-lg-1 why-us-section-inner"
+                        data-aos="fade-right"
+                        data-aos-delay="">
+                    <h2 class="text-center">Welcome to TS-bPASS</h2>
+                    <h4 class="text-center why-us-section-subTitle">
+                        Municipal Administration and Urban Development Department
+                    </h4>
+                    <p class='why-us-section-description' style="text-align :justify">
+                        Government of Telangana has enacted new Municipalities Act “Telangana Municipalities Act 2019” to improve compliance
+                        with laws by citizens, increase accountability among officials, eliminate corrupt practices with an overall aim of
+                        delivering effective services to people living in urban areas of the State by consolidating and providing for the
+                        constitution of Municipalities in accordance with part IX-A of the Indian Constitution. This act also undertakes random
+                        audits and any citizen or official deviating from the rules will be penalized.
+
+                    </p>
+                    <p class='why-us-section-description' style="text-align :justify">
+                        Government of Telangana in tune with the Telangana Municipalities Act, 2019 has launched/introduced TS-bPASS, a single
+                        integrated platform for processing of various permissions required during development of land and construction of
+                        buildings through self-certification system. It is also designed to provide the services within stipulated timelines.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='salient-features'>
+        <div class="container">
+            <div class="row d-flex no-gutters salient-features-inner">
+                <h2 class="col-12 text-center">Salient Features</h2>
+                <ul>
+                    <li>
+                        For plot size up to <span>75 square yards</span> and the construction of ground or ground plus one floor
+                        (Residential) no building permission and occupancy certificate is required. Applicant is required to register with token
+                        of Rs.1.
+
+                    </li>
+                    <li>
+                        For plot size <span>up to 500 square meters and height up to 10 meters (Residential)</span> instant building permission approval through
+                        online self-certification.
+
+                    </li>
+                    <li>
+                        For plot size <span>above 500 square meters and height above 10 meters (Residential & Non-Residential)</span> there is single window
+                        system for obtaining multiple NOCs using Common Application Form and approval through online self-certification.
+
+                    </li>
+                    
+                    
+                </ul>
+                <ul>
+                    <li>
+                        Processing of tentative layout approval applications through online self-certification.
+
+                    </li>
+                    <li>
+                        Processing of Occupancy certificate for non-high-rise buildings constructed in plots above 200 square meters and less
+                        than 500 square meters & for high-rise buildings and buildings constructed in plots 500 square meters through online
+                        self-certification.
+
+                    </li>
+                    <li>
+                        Processing of Land use certificates and Land conversion certificates.
+
+                    </li>
+                    <li>
+                        Post verification of the permissions issued
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="d-none block__73694 site-section border-top  bg-light"
+     id="acts-section">
+    <div class="container ">
+        <div class="row d-flex no-gutters align-items-stretch">
+            <div
+                    class="col-lg-6 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-2"
+                    data-aos="fade-left"
+            >
+                <h2 class="mb-4 text-black">Acts &amp; Rules</h2>
+                <h4 class="text-primary">Know your rules</h4>
+                <ul class="ul-check primary list-unstyled mt-5">
+                    <li>
+                        Download Municipalities Act (
+                        <a
+                                href="https://drive.google.com/open?id=1-WHyZJkPmRYZJQDbRaKVVUsnR2mstmqO"
+                        >English,
+                        </a>
+                        <a
+                                href="https://drive.google.com/open?id=1-a-M2ggRIgRqtcrVMyczFXfMr_tvLNNF"
+                        >Telugu
+                        </a>
+                        and
+                        <a
+                                href="https://drive.google.com/open?id=1-P_D7frKxSxMIrfM-e-LaH6cjUwmR_-F"
+                        >Urdu</a
+                        >)
+                    </li>
+                    <li>
+                        Download Building Rules (
+                        <a
+                                href="https://drive.google.com/open?id=11ZcJkBsDphGExtEjLu3PmUdFChMn_uYr"
+                        >English,
+                        </a>
+                        <a
+                                href="https://drive.google.com/open?id=11gjss4UTlf-ya-Ux7JmdZeEfS2fTrKln"
+                        >Telugu
+                        </a>
+                        and
+                        <a
+                                href="https://drive.google.com/open?id=11WBTgl54lqQNkQiUCSVdfDf32MWkyOef"
+                        >Urdu</a
+                        >)
+                    </li>
+                    <li>
+                        Download Enforcement Rules (
+                        <a
+                                href="https://drive.google.com/open?id=11CtrBNBiHawzYE6fTYoxmiAQTjnw8p7m"
+                        >English,
+                        </a>
+                        <a
+                                href="https://drive.google.com/open?id=11KUPHQWOI6R68veOHZKZ4RrRPOGJptqB"
+                        >Telugu
+                        </a>
+                        and
+                        <a
+                                href="https://drive.google.com/open?id=11MOVapisxWUb3mtPlNpHtQX5tYa5HJc7"
+                        >Urdu</a
+                        >)
+                    </li>
+                    <li>
+                        Download Layout Rules (
+                        <a
+                                href="https://drive.google.com/open?id=11Tcb-IHwyw98HJRwspUXtjyLfULFM_KP"
+                        >English,
+                        </a>
+                        <a
+                                href="https://drive.google.com/open?id=11Thu__HzoiTq0TJa0bn206otbw0Aja5Q"
+                        >Telugu
+                        </a>
+                        and
+                        <a
+                                href="https://drive.google.com/open?id=11UezOZ1mQBK9Ep2g3ZsqRWC7ucWb5eIu"
+                        >Urdu</a
+                        >)
+                    </li>
+                </ul>
+            </div>
+            <div
+                    class="col-12 col-lg-6 block__73422 order-lg-1"
+                    style="background-image: url('../images/rules.jpeg');"
+                    data-aos="fade-right"
+            ></div>
+        </div>
+    </div>
+</div> -->
+
+<div class="site-section stand-out-features" id="services-section">
+    <div class="container">
+        <h2 class='text-center'>Stand out Features</h2>
+        <div class="owl-carousel owl-all">
+            <div class="feature-item">
+                <div class="block__35630">
+                    <div class="icon mb-0">
+                        <img src='../images/online-application.svg' alt='application'>
+                    </div>
+                    <h3 class="mb-3">ONLINE APPLICATION</h3>
+                    <p>
+                        Citizens can fill and submit the application online with required documents.
+
+                    </p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="block__35630">
+                    <div class="icon mb-0">
+                        <img src='../images/simplified-process.svg' alt='process'>
+                    </div>
+                    <h3 class="mb-3">SIMPLIFIED PROCESS</h3>
+                    <p>
+                        Citizens can obtain NOC from all the line departments using single Common Application Form.
+
+                    </p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="block__35630">
+                    <div class="icon mb-0">
+                        <img src='../images/safe-secure.svg' alt='secure'>
+                    </div>
+                    <h3 class="mb-3"> SAFE &amp; SECURE</h3>
+                    <p>
+                        All transactions made on the website are encrypted and hence secure.
+                    </p>
+                </div>
+            </div>
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <img src='../images/3-step.svg' alt='step'>
+                </div>
+                <h3 class="mb-3">3-STEP PROCESS</h3>
+                <p>
+                    Citizens can obtain permissions in 3 easy steps - applying, uploading and paying.
+
+                </p>
+            </div>
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <img src='../images/kind.svg' alt='kind'>
+
+                </div>
+                <h3 class="mb-3">FIRST OF ITS KIND </h3>
+                <p>
+                    First government in the country to provide complete online services with no touchpoint.
+
+                </p>
+            </div>
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <img src='../images/responsive.svg' alt='responsive'>
+                </div>
+                <h3 class="mb-3">USER FRIENDLY</h3>
+                <p>
+                    Citizens can access services through desktop, tablet and mobile by having active internet connection.
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section our-leaders" id="team-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col12 text-center">
+                <div data-aos="fade-up" data-aos-delay="">
+                    <h2>Our Leaders</h2>
+                    <p>
+                        The great minds behind the invention and promotion of
+                        TS-bPASS.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel owl-all">
+            <div class="block-team-member-1 text-center h-100 our-leaders-item">
+                <figure>
+                    <img
+                            src="../images/chandrashekar-rao.png"
+                            alt="KCR"
+                            class="img-fluid"
+                    />
+                </figure>
+                <h3>Shri. K. Chandrashekar Rao</h3>
+                <span
+                        class="d-block font-gray-5 letter-spacing-1 font-size-12 mb-3"
+                >Honourable Chief Minister of Telangana</span
+                >
+            </div>
+            <div class="block-team-member-1 text-center h-100 our-leaders-item">
+                <figure>
+                    <img
+                            src="../images/rama-rao.png"
+                            alt="Image"
+                            class="img-fluid"
+                    />
+                </figure>
+                <h3>Shri. K. T. Rama Rao</h3>
+                <span
+                        class="d-block font-gray-5 letter-spacing-1 font-size-12 mb-3"
+                >Honourable Minister of Muncipal <br />Administration &amp; UrbanDevelopment</span
+                >
+            </div>
+            <div class="block-team-member-1 text-center h-100 our-leaders-item">
+                <figure>
+                    <img
+                            src="../images/arvind-kumar.png"
+                            alt="Image"
+                            class="img-fluid"
+                    />
+                </figure>
+                <h3>Shri. Arvind Kumar, IAS</h3>
+                <span
+                        class="d-block font-gray-5 letter-spacing-1 font-size-12 mb-3"
+                >Principal Secretary, Municipal <br /> Administration &amp; Urban Development</span
+                >
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div
+class="block__73694 site-section border-top  bg-light"
+id="acts-section"
+>
+<div class="container">
+  <div class="row d-flex no-gutters align-items-stretch">
+    <div
+      class="col-lg-6 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-2"
+      data-aos="fade-left"
+    >
+      <h2 class="mb-4 text-black">Acts &amp; Rules</h2>
+      <h4 class="text-primary">Know your rules</h4>
+      <ul class="ul-check primary list-unstyled mt-5">
+        <li>
+          Download Municipalities Act (
+          <a
+            href="https://drive.google.com/open?id=1-WHyZJkPmRYZJQDbRaKVVUsnR2mstmqO"
+            >English,
+          </a>
+          <a
+            href="https://drive.google.com/open?id=1-a-M2ggRIgRqtcrVMyczFXfMr_tvLNNF"
+            >Telugu
+          </a>
+          and
+          <a
+            href="https://drive.google.com/open?id=1-P_D7frKxSxMIrfM-e-LaH6cjUwmR_-F"
+            >Urdu</a
+          >)
+        </li>
+        <li>
+          Download Building Rules (
+          <a
+            href="https://drive.google.com/open?id=11ZcJkBsDphGExtEjLu3PmUdFChMn_uYr"
+            >English,
+          </a>
+          <a
+            href="https://drive.google.com/open?id=11gjss4UTlf-ya-Ux7JmdZeEfS2fTrKln"
+            >Telugu
+          </a>
+          and
+          <a
+            href="https://drive.google.com/open?id=11WBTgl54lqQNkQiUCSVdfDf32MWkyOef"
+            >Urdu</a
+          >)
+        </li>
+        <li>
+          Download Enforcement Rules (
+          <a
+            href="https://drive.google.com/open?id=11CtrBNBiHawzYE6fTYoxmiAQTjnw8p7m"
+            >English,
+          </a>
+          <a
+            href="https://drive.google.com/open?id=11KUPHQWOI6R68veOHZKZ4RrRPOGJptqB"
+            >Telugu
+          </a>
+          and
+          <a
+            href="https://drive.google.com/open?id=11MOVapisxWUb3mtPlNpHtQX5tYa5HJc7"
+            >Urdu</a
+          >)
+        </li>
+        <li>
+          Download Layout Rules (
+          <a
+            href="https://drive.google.com/open?id=11Tcb-IHwyw98HJRwspUXtjyLfULFM_KP"
+            >English,
+          </a>
+          <a
+            href="https://drive.google.com/open?id=11Thu__HzoiTq0TJa0bn206otbw0Aja5Q"
+            >Telugu
+          </a>
+          and
+          <a
+            href="https://drive.google.com/open?id=11UezOZ1mQBK9Ep2g3ZsqRWC7ucWb5eIu"
+            >Urdu</a
+          >)
+        </li>
+      </ul>
+    </div>
+    <div
+      class="col-12 col-lg-6 block__73422 order-lg-1"
+      style="background-image: url('../images/rules.jpeg');"
+      data-aos="fade-right"
+    ></div>
+  </div>
+</div>
+</div> -->
+<!-- <div class="site-section blog-section" id="blog-section">
+    <div class="container">
+        <div class="owl-carousel owl-all">
+            <div class="block-team-member-1 h-100 blog-section-item">
+                <span>blog</span>
+                <h3>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit</h3>
+                <p class="d-block font-gray-5">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                    dolores et…
+                </p>
+                <a href='./index.html'>Read more</a>
+            </div>
+            <div class="block-team-member-1 h-100 blog-section-item">
+                <span>news</span>
+                <h3>Getting The Most Out Of Annual Mandatory Training</h3>
+                <p class="d-block font-gray-5">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                    dolores et…
+                </p>
+                <a href='./index.html'>Read more</a>
+            </div>
+            <div class="block-team-member-1 h-100 blog-section-item">
+                <span>blog</span>
+                <h3>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit</h3>
+                <p class="d-block font-gray-5">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                    dolores et…
+                </p>
+                <a href='./index.html'>Read more</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="site-section course-section" id="course-section">
+    <div class="container">
+        <div class="row justify-content-center course-section-title">
+            <div class="col12 text-center">
+                <div data-aos="fade-up" data-aos-delay="">
+                    <h2>ULBs/UDAs </h2>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel owl-desktop">
+            <div class="block-team-member-1 course-section-item">
+                <a href="https://www.hmda.gov.in/" target="_blank" >
+                    <img src='../images/hmda.jpeg' alt='HMDA'>
+                </a>
+            </div>
+            <div class="block-team-member-1 course-section-item">
+                <a href="https://www.ghmc.gov.in/" target="_blank" >
+                    <img src='../images/ghmc_logo.png' alt='GHMC'>
+                </a>
+            </div>
+            <div class="block-team-member-1 course-section-item">
+                <a href="http://dpms.dtcp.telangana.gov.in/" target="_blank" >
+                    <img src='../images/logo.png' alt='DTCP' style='max-width: 108px;'>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-12">
+                    <ul class='row justify-content-center organograms-block'>
+                        <div class='col-12 col-lg-1'>
+                            <a href="http://kuda.co.in/" target="_blank" >
+                                <span>KUDA</span>
+                                <p>Kakatiya Urban Development Authority</p>
+                            </a>
+                        </div>
+                        <div class='col-12 col-lg-1'>
+                            <a href="https://www.telangana.gov.in/departments/municipal-administration-and-urban-development" target="_blank" >
+                                <span>SUDA</span>
+                                <p>Sathavahana Urban Development Authority</p>
+                            </a>
+                        </div>
+                        <div class='col-12 col-lg-1'>
+                            <a href="http://ytda.in/" target="_blank" >
+                                <span>YTDA</span>
+                                <p>Yadadri Temple Area Development Authority</p>
+                            </a>
+                        </div>
+                        <div class='col-12 col-lg-1'>
+                            <a href="https://www.telangana.gov.in/departments/municipal-administration-and-urban-development" target="_blank" >
+                                <span>VTDA</span>
+                                <p>Vemulavada Temple Area Development Authority</p>
+                            </a>
+                        </div>
+                        <div class='col-12 col-lg-1'>
+                            <a href="https://www.telangana.gov.in/departments/municipal-administration-and-urban-development" target="_blank" >
+                                <span>SUDA</span>
+                                <p>Sthambadhri Urban Development Authority</p>
+                            </a>
+                        </div>
+                        <div class='col-12 col-lg-1'>
+                            <a href="https://www.telangana.gov.in/departments/municipal-administration-and-urban-development" target="_blank" >
+                                <span>NUDA</span>
+                                <p>Nizamabad Urban Development Authority</p>
+                            </a>
+                        </div>
+                        <div class='col-12 col-lg-1'>
+                            <a href="http://suda.org.in/" target="_blank" >
+                                <span>SUDA</span>
+                                <p>Siddipet Urban Development Authority</p>
+                            </a>
+                        </div>
+                        
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section contact-us" id="contact-section">
+    <div class="container">
+        <div class="row contact-us-inner">
+            <div class="col-lg-6 mb-5 contact-us-form" data-aos="fade-up" data-aos-delay="100">
+                <h2 class='contact-us-title'>Contact Us</h2>
+                <hr>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-md-6 mb-4 mb-lg-0">
+                            <label for='firstName'>
+                                First name
+                                <input
+                                        id="firstName"
+                                        name="firstName"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Example: Kee|"
+                                />
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label for='lastName'>
+                                Last Name<input
+                                    id="lastName"
+                                    name="lastName"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Example: Sairam"
+                            />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for='email'>
+                                Email Address
+                                <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="Enter your email address"
+                                />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for='phone'>
+                                Phone Number<input
+                                    id="phone"
+                                    name="phone"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Example: 9014267607"
+                            />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                    <textarea
+                            name="message"
+                            id="message"
+                            class="form-control"
+                            placeholder="Write your message."
+                            cols="30"
+                            rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12 mr-auto">
+                            <input
+                                    type="submit"
+                                    class="btn btn-block btn-primary submit"
+                                    value="Submit"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg- ml-auto"
+                 data-aos="fade-up"
+                 data-aos-delay="200"
+                 style="padding-left: 58px;">
+                <div class="bg-white p-md-6 contact-us-form">
+                    <ul class="list-unstyled footer-link">
+                        <li class="d-block mb-3 phone">
+                            <span class="d-block contact-us-sub">Phone:</span>
+                            <span>
+                                <a href="tel:040-22666666" class="text-black">040-22 66 66 66</a>
+                            </span>
+                        </li>
+                        <li class="d-block mb-3 email">
+                            <span class="d-block contact-us-sub">Email:</span>
+                           
+                            <span class="d-block">
+                                    <a class="__cf_email__"
+                                       href="mailto:ts-bpass-support@telangana.gov.in">ts-bpass-support@telangana.gov.in</a></span>
+                        </li>
+                        <li class="d-block mb-3 address">
+                            <span class="d-block contact-us-sub">Address</span>
+                            <!-- <span>Maud and Adminstration office</span> -->
+                            <span>Municipal Administration and Urban Development</span><br />
+                            <span>Government of Telangana</span><br />
+                            <span>640,AC Guards Opp: PTI Building</span><br />
+                            <span>Hyderabad - 500004</span>
+                        </li>
+                        <li class="d-block mb-3 hours">
+                            <span class="d-block contact-us-sub">Hours of Operations</span>
+                            <span>10:00am to 6:00pm IST</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-md-6 twitter-feed">
+                    <a class="twitter-timeline" href="https://twitter.com/BpassTs?ref_src=twsrc%5Etfw">Tweets by TS-bPASS</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                   </div>
+            </div>
+           
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="footer"></div>
+
+<script
+        src="../js/jquery-3.3.1.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/popper.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/bootstrap.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/owl.carousel.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.sticky.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.waypoints.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.animateNumber.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.fancybox.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.easing.1.3.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/aos.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/moment.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/main.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/languageManager.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/fontSizeChanger.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156171945-1');
+
+
+</script>
+<script
+        src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+        defer=""
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      setInterval(function(){
+        document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+      }, 1000);
+
+
+</script>
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      jQuery(document).ready(function(){
+          jQuery("#carousel").owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            margin: 0,
+            autoplayTimeout:4000,
+            autoplayHoverPause:false,
+            nav: false,
+            dots: true
+          });
+          var language = getSelectedLanguage();
+          if(language == '')
+            jQuery("#languageSelectionModal").modal('show');
+          else
+            redirectToLanguageHome(language)
+      });
+
+
+</script>
+<script>
+    $(document).ready(function(){
+            $("#header").load("header.html");
+        ;
+    });
+    </script>
+    <script>
+        $(document).ready(function(){
+                $("#footer").load("footer.html");
+            ;
+        });
+        </script>
+</body>
+</html>

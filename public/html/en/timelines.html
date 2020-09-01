@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+<head>
+  <title>TS-bPASS, Self certification portal for Citizens</title>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+  />
+  <link
+          href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../fonts/icomoon/style.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+  <link rel="stylesheet" href="../css/aos.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/ticker.css" />
+</head>
+<!--Start of Tawk.to Script-->
+<script>setTimeout(function () { var e, t; e = document, (t = e.createElement("script")).type = "text/javascript", t.async = !0, t.setAttribute("data-botid", "iFSrs4Z_VvrF"), t.src = "https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v=" + Date.parse(new Date()), e.getElementsByTagName("body")[0].appendChild(t) }, 3e3);</script>
+<!--End of Tawk.to Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/ticker.js"></script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<!-- Apply Modal -->
+<div
+      class="modal row fade"
+      id="applyNowModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="applyNowModalLabel"
+      aria-hidden="true"
+>
+  <div class="modal-dialog  modal-dialog-centered dropdown-popup" role="document">
+      <div class="modal-content col-12 text-black">
+          <div class="modal-body row">
+              <div class="col-12">
+                  <a href="/application/new"
+                     type="button">Building Permission</a>
+              </div>
+              <div class="col-12">
+                  <a href="../../en/self-certification/layout"
+                     type="button">Layout Permission</a>
+              </div>
+              <div class="col-12">
+                  <a
+                          href="http://occupancycertificate.s3-website-eu-west-1.amazonaws.com/"
+                          type="button">Occupancy Certificate</a>
+              </div>
+              <div class="col-12">
+                  <a href="https://tsbpass.enforcement.srshta.com/Citizen_Complaint"
+                     type="button"> Enforcement</a>
+              </div>
+              <div class="col-12">
+                  <a href="/tsbpass.com/support"
+                     type="button">Land use Certificate </a>
+              </div>
+              <div class="col-12">
+                  <a href="tsbpass.com/support"
+                     type="button">Change of Land use</a>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<!-- Language selection modal-->
+<div
+      class="modal row fade"
+      id="languageSelectionModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="languageSelectionModalLabel"
+      aria-hidden="true"
+>
+  <div class="modal-dialog  modal-dialog-centered" role="document">
+      <div class="modal-content col-12 text-black">
+          <div class="modal-header">
+              <h5 class="modal-title" id="languageSelectionModalLabel">
+                  Choose your language
+              </h5>
+              <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+              >
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body row text-center">
+              <div class="col-4">
+                  <button
+                          onclick="setLanguageAndRedirect('en')"
+                          type="button"
+                          class="btn btn-primary text-white px-4 py-2">
+                      English
+                  </button>
+              </div>
+              <div class="col-4">
+                  <button
+                          onclick="setLanguageAndRedirect('te')"
+                          type="button"
+                          class="btn btn-primary text-white px-4 py-2">
+                      తెలుగు
+                  </button>
+              </div>
+              <div class="col-4">
+                  <button
+                          onclick="setLanguageAndRedirect('ur')"
+                          type="button"
+                          class="btn btn-primary text-white px-4 py-2">
+                      اردو
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+  <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="site-wrap" id="home-section">
+  <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+              <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+  </div>
+
+
+  <header
+          class="site-navbar js-sticky-header site-navbar-target"
+          role="banner"
+          id="header-tsbpass"
+          style="margin-top: 0px;"
+  >
+      <div style="padding-left: 15px;">
+          <div class="row align-items-center position-relative">
+              <div class="row support">
+                  <p id="date" class='font-size-12'></p>
+                  <div class='support-inner'>
+                      <a target="_blank" href="tel:040-22666666" class='font-size-12'>040-22 66 66 66</a>
+                      <a target="_blank" href="/html/en/faq.html" class=' font-size-12'>FAQs</a>
+                      <a href="http://tsbpass.com/support" target="_blank"
+                         class='text-uppercase font-size-12 external'>Support</a>
+                      <a class='language-wrapper' data-toggle="modal" data-target="#languageSelectionModal">
+                          <span class='text-uppercase font-size-12'>Language</span>
+                          <img src='../images/language.svg' class='language' alt='language' />
+                      </a>
+                      <button id="btn-decrease">A-</button>
+                      <button id="btn-orig">A</button>
+                      <button id="btn-increase">A+</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
+
+  <div id="header"></div>
+
+    <div style="margin:20px;" class="block__73694 border-top" id="why-us-section">
+        <div class='salient-features'>
+            <div class="container">
+                <div class="row d-flex no-gutters">
+                    <h2 class="col-12 text-center">TIMELINES in TS-bPASS</h2>
+                    <p class='why-us-section-description' style="text-align :justify"></p>
+                    <table>
+                        <tr>
+                          <th  style="font-size: 18px;">S.No.</th>
+                          <th  style="font-size: 18px;">SERVICES</th>
+                          <th  style="font-size: 18px;">DEPARTMENT</th>
+                          <th  style="font-size: 18px;">TIMELINE</th>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 20px;"><strong>A</strong></td>
+                          <td style="font-size: 20px;"><strong>Building Plan</strong></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>A1</td>
+                          <td>Plot size up to 75 sq. yards (residential)</td>
+                          <td>ULBs/Line Dept. </td>
+                          <td>Exempted</td>
+                        </tr>
+                        <tr>
+                          <td>A2</td>
+                          <td>Plot size up to 500 square meters and height up to 10 meters (residential)</td>
+                          <td>ULBs/Line Dept. </td>
+                          <td>Instant</td>
+                        </tr>
+                        <tr>
+                          <td>A3</td>
+                          <td>Plot size above 500 square meters and height above 10 meters </td>
+                          <td>ULBs/Line Dept. </td>
+                          <td>21 Days</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 20px;"><strong>A3.1</strong></td>
+                            <td style="font-size: 20px;"><strong>Approval of Building Plan in case of no shortfalls</strong></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>Submission of scrutiny report </td>
+                          <td>ULBs/Line Dept. </td>
+                          <td>10 Days</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Intimation Letter/DC Letter </td>
+                            <td>ULBs/Line Dept. </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Mortgage and compliance of DC conditions by the applicant</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Extra period for compliance of DC conditions and submission of mortgage with interest of 18%</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Building Plan Approval after submission of Mortgage and compliance</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 20px;"><strong>A3.2</strong></td>
+                            <td style="font-size: 20px;"><strong>Approval of Building Plan in case of shortfalls<strong></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>Shortfall Notice if any to be issued by officer </td>
+                          <td>ULBs/Line Dept. </td>
+                          <td>10 Days</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Compliance to shortfall by the applicant </td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Recommendation to Commissioner/Scrutiny report</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>5 Days</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Fee Intimation Letter/DC Letter</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Mortgage and compliance of DC conditions by the applicant</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>Extra period for compliance of DC conditions and submission of mortgage with interest of 18%</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>Building Plan Approval after submission of Mortgage and compliance</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 20px;"><strong>B</strong></td>
+                            <td style="font-size: 20px;"><strong>NOCs for Building Plan</strong></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>NOC for Petrol Bunk, Multiplex & Theatres</td>
+                          <td>Commissioner of Police (Traffic) </td>
+                          <td>10 Days</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <ol>Provisional Fire NOC
+                                <li>Non-High Rise Buildings</li>
+                                <li>High Rise Buildings</li>
+                                </ol> 
+                            </td>
+                            <td>Fire Services </td>
+                            <td><ol>
+                                <li>7 Days</li>
+                                <li>10 Days</li>
+                                </ol> </td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Site is located nearby water bodies within 200 Mts. from the Boundary of the River / LAKE / Pound / Cheruvu / Kunta</td>
+                            <td>Irrigation </td>
+                            <td>10 Days</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Site is located nearby water bodies within 200 Mts. from the Boundary of the River / LAKE / Pound / Cheruvu / Kunta</td>
+                            <td>Revenue </td>
+                            <td>10 Days</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Building & Construction projects having built up area more than 20,000 Sq. Mts., and land development (Layouts), Town
+                            Ships & Area Development projects covering an area above 50 Ha.</td>
+                            <td>TSPCB- SEIAA </td>
+                            <td>10 Days</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>Sites in the vicinity of Water Pipe line / Oil / Gas Pipe line if any</td>
+                            <td>HMWSSB / Mission Bhaghiratha / Concerned Oil / Gas Company</td>
+                            <td>7 Days</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>Sites located within a distance up to 100 Mts. from protected Monuments as notified under archaeological monuments and
+                            ancient sites are remains Act 1955</td>
+                            <td>State Archaeological  </td>
+                            <td>7 Days</td>
+                          </tr>
+                          <tr>
+                            <td>8</td>
+                            <td>NOC in case of sites located within the vicinity of any Heritage Structure notified as per the respective law, the prior
+                            clearance from the concerned Authority (Heritage Conservation Committee) shall be obtained.</td>
+                            <td>Heritage Conservation Committee  </td>
+                            <td>7 Days</td>
+                          </tr>
+                          <tr>
+                            <td>9</td>
+                            <td>NOC for tree felling</td>
+                            <td>Forest/Excise  </td>
+                            <td>7 Days</td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 20px;"><strong>C</strong></td>
+                            <td style="font-size: 20px;"><strong>Occupancy Certificate</strong></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td>C.1</td>
+                          <td>Residential buildings in plot area up to 75 sq yds  and height up 7 mts (ground plus one floor) </td>
+                          <td>ULBs/Line Dept. </td>
+                          <td>Not Required</td>
+                        </tr>
+                        <tr>
+                            <td>C.2</td>
+                            <td>Residential buildings in plot area above 75 Sq yds  and up to 240 sq yds (200 sq.mts) and height up 7 mts (ground plus one floor)
+                                <span style=color:red>Note: But intimate upon completion</span></td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>Not Required</td>
+                          </tr>
+                          <tr>
+                            <td>C.3</td>
+                            <td>Non-high-rise residential buildings constructed in plots above 200 square meters and less than 500 square meters and height up to 10 mtrs</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>21 Days</td>
+                          </tr>
+                          <tr>
+                            <td>C.4</td>
+                            <td>High-rise buildings and buildings constructed in plots 500 square meters</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>21 Days</td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 20px;"><strong>D</strong></td>
+                            <td style="font-size: 20px;"><strong>Land Use Certificate/Land Conversion Certificate</strong></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td>D.1</td>
+                          <td>Land Use Certificate as per Master Plan</td>
+                          <td>DTCP/ HMDA</td>
+                          <td>3 Days</td>
+                        </tr>
+                        <tr>
+                            <td>D.2</td>
+                            <td>LCC Proceedings as per Telangana Non-Agriculture Land Assessment Act 2006</td>
+                            <td>Revenue </td>
+                            <td>7 Days</td>
+                          </tr>
+                        <tr>
+                            <td style="font-size: 20px;"><strong>E</strong></td>
+                            <td style="font-size: 20px;"><strong>Layout</strong></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 20px;"><strong>E.1</strong></td>
+                          <td style="font-size: 20px;"><strong>Tentative Layout</strong></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Shortfall Notice
+                            </td>
+                            <td>ULBs/Line Dept.</td>
+                            <td>10 Days</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Compliance to shortfall</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Recommendation to Commissioner</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>5 Days</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Issue of intimation letter</td>
+                            <td>ULBs/Line Dept. </td>
+                            <td>10 Days</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Compliance of conditions</td>
+                            <td>ULBs/Line Dept.</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>Final fee intimation</td>
+                            <td>ULBs/Line Dept.</td>
+                            <td>7 Days</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>Compliance to final conditions</td>
+                            <td>ULBs/Line Dept.</td>
+                            <td>15 Days</td>
+                          </tr>
+                          <tr>
+                            <td>8</td>
+                            <td>Issue of tentative plan</td>
+                            <td>ULBs/Line Dept.</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 20px;"><strong>E.2</strong></td>
+                            <td style="font-size: 20px;"><strong>Final layout</strong></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>Examine
+                              </td>
+                              <td>ULBs/Line Dept.</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Recommendation to Commissioner</td>
+                              <td>ULBs/Line Dept. </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Release of mortgage</td>
+                              <td>ULBs/Line Dept. </td>
+                              <td>21 Days</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px;"><strong>F</strong></td>
+                                <td style="font-size: 20px;"><strong>Validity of Building Permit</strong></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                  <td>F.1</td>
+                                  <td>Non-High-Rise Building
+                                  </td>
+                                  <td>ULBs/Line Dept.</td>
+                                  <td>3 Years</td>
+                            </tr>
+                            <tr>
+                                  <td>F.2</td>
+                                  <td>High-Rise Building</td>
+                                  <td>ULBs/Line Dept. </td>
+                                  <td>5 Years</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px;"><strong>G</strong></td>
+                                <td style="font-size: 20px;"><strong>Validity for the Layout </strong></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                  <td>G.1</td>
+                                  <td>From the date of tentative approval
+                                  </td>
+                                  <td>ULBs/Line Dept.</td>
+                                  <td>2 Years</td>
+                            </tr>
+
+                      </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+    <div id="footer"></div>
+<script
+      src="../js/jquery-3.3.1.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/popper.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/bootstrap.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/owl.carousel.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.sticky.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.waypoints.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.animateNumber.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.fancybox.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.easing.1.3.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/aos.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/moment.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/main.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/languageManager.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/fontSizeChanger.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156171945-1');
+
+
+</script>
+<script
+      src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+      data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+      defer=""
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+    setInterval(function(){
+      document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+    }, 1000);
+
+
+</script>
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#carousel").owlCarousel({
+          loop: true,
+          autoplay: true,
+          items: 1,
+          margin: 0,
+          autoplayTimeout:4000,
+          autoplayHoverPause:false,
+          nav: false,
+          dots: true
+        });
+        var language = getSelectedLanguage();
+        if(language == '')
+          jQuery("#languageSelectionModal").modal('show');
+        else
+          redirectToLanguageHome(language)
+    });
+
+
+</script>
+<script>
+  $(document).ready(function(){
+          $("#footer").load("footer.html");
+      ;
+  });
+  </script>
+<script>
+  $(document).ready(function(){
+          $("#header").load("header.html");
+      ;
+  });
+  </script>
+</body>
+</html>

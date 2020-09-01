@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+<head>
+    <title>TS-bPASS, Self certification portal for Citizens</title>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <link
+            href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../css/aos.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/ticker.css" />
+</head>
+<!--Start of Tawk.to Script-->
+<script>setTimeout(function () { var e, t; e = document, (t = e.createElement("script")).type = "text/javascript", t.async = !0, t.setAttribute("data-botid", "iFSrs4Z_VvrF"), t.src = "https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v=" + Date.parse(new Date()), e.getElementsByTagName("body")[0].appendChild(t) }, 3e3);</script>
+<!--End of Tawk.to Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/ticker.js"></script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<!-- Apply Modal -->
+<div
+        class="modal row fade"
+        id="applyNowModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="applyNowModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered dropdown-popup" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-body row">
+                <div class="col-12">
+                    <a href="/application/new"
+                       type="button">Building Permission</a>
+                </div>
+                <div class="col-12">
+                    <a href="../../en/self-certification/layout"
+                       type="button">Layout Permission</a>
+                </div>
+                <div class="col-12">
+                    <a
+                            href="http://occupancycertificate.s3-website-eu-west-1.amazonaws.com/"
+                            type="button">Occupancy Certificate</a>
+                </div>
+                <div class="col-12">
+                    <a href="https://tsbpass.enforcement.srshta.com/Citizen_Complaint"
+                       type="button"> Enforcement</a>
+                </div>
+                <div class="col-12">
+                    <a href="/tsbpass.com/support"
+                       type="button">Land use Certificate </a>
+                </div>
+                <div class="col-12">
+                    <a href="tsbpass.com/support"
+                       type="button">Change of Land use</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Language selection modal-->
+<div
+        class="modal row fade"
+        id="languageSelectionModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="languageSelectionModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageSelectionModalLabel">
+                    Choose your language
+                </h5>
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body row text-center">
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('en')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        English
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('te')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        తెలుగు
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('ur')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        اردو
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header
+            class="site-navbar js-sticky-header site-navbar-target"
+            role="banner"
+            id="header-tsbpass"
+            style="margin-top: 0px;"
+    >
+        <div style="padding-left: 15px;">
+            <div class="row align-items-center position-relative">
+                <div class="row support">
+                    <p id="date" class='font-size-12'></p>
+                    <div class='support-inner'>
+                        <a target="_blank" href="tel:040-22666666" class='font-size-12'>040-22 66 66 66</a>
+                        <a target="_blank" href="/html/en/faq.html" class=' font-size-12'>FAQs</a>
+                        <a href="http://tsbpass.com/support" target="_blank"
+                           class='text-uppercase font-size-12 external'>Support</a>
+                        <a class='language-wrapper' data-toggle="modal" data-target="#languageSelectionModal">
+                            <span class='text-uppercase font-size-12'>Language</span>
+                            <img src='../images/language.svg' class='language' alt='language' />
+                        </a>
+                        <button id="btn-decrease">A-</button>
+                        <button id="btn-orig">A</button>
+                        <button id="btn-increase">A+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="header"></div>
+
+    <div class="block__73694 border-top" id="why-us-section">
+        <div class='salient-features'>
+            <div class="container">
+                <div class="row d-flex no-gutters salient-features-inner">
+                    <h2 class="col-12 text-center">Privacy Policy</h2>
+                    <p class='why-us-section-description' style="text-align :justify">
+                        The Telangana Government has enacted the “Telangana
+                        Municipalities Act, 2019” (Act No.11 of 2019) to consolidate and
+                        provide for the constitution of Municipalities (Municipal
+                        Councils and Municipal Corporations) other than the Greater
+                        Hyderabad Municipal Corporation in the State of Telangana in
+                        terms of Part IX-A of the constitution of India and for matters
+                        connected therewith or incidental thereto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+    <div id="footer"></div>
+<script
+        src="../js/jquery-3.3.1.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/popper.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/bootstrap.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/owl.carousel.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.sticky.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.waypoints.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.animateNumber.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.fancybox.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.easing.1.3.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/aos.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/moment.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/main.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/languageManager.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/fontSizeChanger.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156171945-1');
+
+
+</script>
+<script
+        src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+        defer=""
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      setInterval(function(){
+        document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+      }, 1000);
+
+
+</script>
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      jQuery(document).ready(function(){
+          jQuery("#carousel").owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            margin: 0,
+            autoplayTimeout:4000,
+            autoplayHoverPause:false,
+            nav: false,
+            dots: true
+          });
+          var language = getSelectedLanguage();
+          if(language == '')
+            jQuery("#languageSelectionModal").modal('show');
+          else
+            redirectToLanguageHome(language)
+      });
+
+
+</script>
+<script>
+    $(document).ready(function(){
+            $("#footer").load("footer.html");
+        ;
+    });
+    </script>
+<script>
+    $(document).ready(function(){
+            $("#header").load("header.html");
+        ;
+    });
+    </script>
+</body>
+</html>

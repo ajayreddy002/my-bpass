@@ -1,0 +1,105 @@
+
+> ghmc@1.5.1 start-uat /root/tsbpass-frontend
+> ./startup.sh uat
+
+UAT starting
+
+> ghmc@1.5.1 build /root/tsbpass-frontend
+> next build
+
+Creating an optimized production build...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+Warning: Built-in CSS support is being disabled due to custom CSS configuration being detected.
+See here for more info: https://err.sh/next.js/built-in-css-disabled
+
+> Using external babel configuration
+> Location: "/root/tsbpass-frontend/.babelrc"
+
+> ghmc@1.5.1 start-uat /root/tsbpass-frontend
+> ./startup.sh uat
+
+UAT starting
+
+> ghmc@1.5.1 build /root/tsbpass-frontend
+> next build
+
+Creating an optimized production build...
+Warning: Built-in CSS support is being disabled due to custom CSS configuration being detected.
+See here for more info: https://err.sh/next.js/built-in-css-disabled
+
+> Using external babel configuration
+> Location: "/root/tsbpass-frontend/.babelrc"
+
+Compiled successfully.
+
+Automatically optimizing pages...
+Warning: You have opted-out of Automatic Static Optimization due to `getInitialProps` in `pages/_app`. This does not opt-out pages with `getStaticProps`
+Read more: https://err.sh/next.js/opt-out-auto-static-optimization
+
+
+Page                                                                     Size     First Load JS
+┌ λ /                                                                    1.13 kB        86.2 kB
+├   /_app                                                                8.73 kB        85.1 kB
+├ λ /404                                                                 3.29 kB        88.4 kB
+├ λ /api/postData
+├ λ /citizen-search/ApplicationSearch                                    2.11 kB         165 kB
+├ λ /citizen-search/citizenSearch                                        6.16 kB         315 kB
+├ λ /citizen-search/searchApplicationForStatus                           2.91 kB         318 kB
+├ λ /gotham/backdoorFileUploader                                         5.28 kB         315 kB
+├ λ /govt/adminCreation                                                  8.52 kB         575 kB
+├ λ /govt/adminLogin                                                     8.28 kB         318 kB
+├ λ /govt/adminLogout                                                    2.61 kB         185 kB
+├ λ /govt/adminRedirect                                                  1.15 kB         543 kB
+├ λ /govt/applicationList                                                9.68 kB         599 kB
+├ λ /govt/changePassword                                                 4.45 kB         571 kB
+├ λ /govt/report                                                         5.32 kB         290 kB
+├ λ /govt/stats                                                          5.04 kB         290 kB
+├ λ /govt/withValidation                                                 185 B           542 kB
+├ λ /self-certification-application/application                          22.1 kB         338 kB
+├ λ /self-certification-application/axisPaymentResponse                  4.96 kB         290 kB
+├ λ /self-certification-application/documents                            10.6 kB         320 kB
+├ λ /self-certification-application/download                             4.91 kB         302 kB
+├ λ /self-certification-application/initiatePayment                      4.88 kB         278 kB
+├ λ /self-certification-application/layouts/layout                       13.9 kB         330 kB
+├ λ /self-certification-application/offlinePayment                       4.91 kB         290 kB
+├ λ /self-certification-application/payment                              4.59 kB         315 kB
+├ λ /self-certification-application/paymentResponse                      5.33 kB         290 kB
+├ λ /self-certification-application/paynimoPayment                       6.89 kB         292 kB
+├ λ /self-certification-application/razorPayment                         6.81 kB         292 kB
+├ λ /self-certification-application/redirects                            5.45 kB         293 kB
+├ λ /self-certification-application/review                               4.54 kB         327 kB
+└ λ /self-certification-application/tracking                             5.78 kB         364 kB
++ First Load JS shared by all                                            85.1 kB
+  ├ static/pages/_app.js                                                 8.73 kB
+  ├ chunks/1c2bf1623e582f9502e88d5f026f0618bfc5edd1.361a32.js            10.4 kB
+  ├ chunks/42903eb5.f6541c.js                                            65 B
+  ├ chunks/6b1c35d22aa89aa3736517e3cf34f64969de711f_CSS.c3e0d7.js        65 B
+  ├ chunks/8313d723.f6f9e0.js                                            14 kB
+  ├ chunks/b01941fe27288a5abca8f26351633c4a8bbb218b.329b1b.js            4.13 kB
+  ├ chunks/framework.4dd100.js                                           40.3 kB
+  ├ chunks/styles.2cc666.js                                              89 B
+  ├ runtime/main.86758e.js                                               6.63 kB
+  ├ runtime/webpack.83bd83.js                                            746 B
+  ├ css/42903eb5.f582db49.chunk.css                                      23.7 kB
+  ├ css/6b1c35d22aa89aa3736517e3cf34f64969de711f_CSS.27bcbd59.chunk.css  14.6 kB
+  └ css/styles.bccd3a7d.chunk.css                                        3.39 kB
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
+
+[PM2][ERROR] Script already launched, add -f option to force re-execution
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! ghmc@1.5.1 start-uat: `./startup.sh uat`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the ghmc@1.5.1 start-uat script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-05-22T08_44_26_042Z-debug.log

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+<head>
+    <title>TS-bPASS, Self certification portal for Citizens</title>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <link
+            href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../css/aos.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/ticker.css" />
+</head>
+<!--Start of Tawk.to Script-->
+<script>setTimeout(function () { var e, t; e = document, (t = e.createElement("script")).type = "text/javascript", t.async = !0, t.setAttribute("data-botid", "iFSrs4Z_VvrF"), t.src = "https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v=" + Date.parse(new Date()), e.getElementsByTagName("body")[0].appendChild(t) }, 3e3);</script>
+<!--End of Tawk.to Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/ticker.js"></script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<!-- Apply Modal -->
+<div
+        class="modal row fade"
+        id="applyNowModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="applyNowModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered dropdown-popup" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-body row">
+                <div class="col-12">
+                    <a href="/application/new"
+                       type="button">Building Permission</a>
+                </div>
+                <div class="col-12">
+                    <a href="../../en/self-certification/layout"
+                       type="button">Layout Permission</a>
+                </div>
+                <div class="col-12">
+                    <a
+                            href="http://occupancycertificate.s3-website-eu-west-1.amazonaws.com/"
+                            type="button">Occupancy Certificate</a>
+                </div>
+                <div class="col-12">
+                    <a href="https://tsbpass.enforcement.srshta.com/Citizen_Complaint"
+                       type="button"> Enforcement</a>
+                </div>
+                <div class="col-12">
+                    <a href="/tsbpass.com/support"
+                       type="button">Land use Certificate </a>
+                </div>
+                <div class="col-12">
+                    <a href="tsbpass.com/support"
+                       type="button">Change of Land use</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Language selection modal-->
+<div
+        class="modal row fade"
+        id="languageSelectionModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="languageSelectionModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageSelectionModalLabel">
+                    Choose your language
+                </h5>
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body row text-center">
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('en')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        English
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('te')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        తెలుగు
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('ur')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        اردو
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header
+            class="site-navbar js-sticky-header site-navbar-target"
+            role="banner"
+            id="header-tsbpass"
+            style="margin-top: 0px;"
+    >
+        <div style="padding-left: 15px;">
+            <div class="row align-items-center position-relative">
+                <div class="row support">
+                    <p id="date" class='font-size-12'></p>
+                    <div class='support-inner'>
+                        <a target="_blank" href="tel:040-22666666" class='font-size-12'>040-22 66 66 66</a>
+                        <a target="_blank" href="/html/en/faq.html" class=' font-size-12'>FAQs</a>
+                        <a href="http://tsbpass.com/support" target="_blank"
+                           class='text-uppercase font-size-12 external'>Support</a>
+                        <a class='language-wrapper' data-toggle="modal" data-target="#languageSelectionModal">
+                            <span class='text-uppercase font-size-12'>Language</span>
+                            <img src='../images/language.svg' class='language' alt='language' />
+                        </a>
+                        <button id="btn-decrease">A-</button>
+                        <button id="btn-orig">A</button>
+                        <button id="btn-increase">A+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="header"></div>
+    <div class='salient-features'>
+        <div class="container">
+            <div class="row d-flex no-gutters ">
+                <h2 class="col-12 text-center">Departments</h2>
+                
+                <ol>
+                    <li>
+                        <span>Line Departments</span>
+                    <li>
+                        <span>Water Bodies – Irrigation and Revenue Departments</span>
+                        <p>
+                            No building / development activity shall be allowed in the bed of water bodies like river or nala and in the Full Tank
+                        Level (FTL) of any lake, pond, cheruvu or kunta / shikam lands.
+                        </p>
+                    <ul>
+                        <li>
+                            Unless and otherwise stated, the area and the Full Tank Level (FTL) of a Lake / Kunta shall be reckoned as measured and
+                            as certified by the Irrigation Department and Revenue Department.
+                        </li>
+                        
+                        <ul>
+                            <li>
+                                The above water bodies and courses shall be maintained as Recreational/Green Buffer Zone and no building activity shall
+                                be carried out within:
+                            </li>
+                            <li>
+                                100m from the boundary of the River outside the Municipal Corporation / Municipality / Nagara Panchayat limits and 50m
+                                with in the Municipal Corporation / Municipality / Nagara Panchayat limits. The boundary of the river shall be as fixed
+                                and certified by the Irrigation Department and Revenue Department.
+                            </li>
+                            <li>
+                                30m from the FTL boundary of Lakes / Tanks / Kuntas of area 10Ha and above.
+                            </li>
+                            <li>
+                                9m from the FTL boundary of Lakes / Tanks / Kuntas of area less than 10Ha / shikam lands;
+                            </li>
+                            <li>
+                                9m from the defined boundary of Canal, Vagu, Nala, Storm Water Drain of width more than 10m.
+                            </li>
+                            <li>
+                                2m from the defined boundary of Canal, Vagu, Nala, Storm Water Drain of width up to 10m.
+                            </li>
+                        </ul>
+                    
+                      
+                </ul>
+                <ul>
+                <li>
+                        Unless and otherwise specified in the Master Plan / Zonal Development Plan.
+                    
+                    <ul>
+                        <li>
+                            In case of (ii) (1) & (2) above, the buffer zone may be utilised for road of minimum 12m width, wherever feasible.
+                        </li>
+                        <li>
+                            In case of (ii) (2) above, in addition to development of recreational / green belt along the foreshores, a ring road or
+                            promenade of minimum 12m may be developed, wherever feasible.
+                        </li>
+                        <li>
+                            The above buffer zone to be left may be reckoned as part of tot lot or organized open land and not for setback
+                            requirements.
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+                <ul>
+                    <li>
+                        In case of Protection of Catchment area of Osmansagar and Himayatsagar lakes covered under the G.O.Ms.No.111 MA dated
+                        08.03.1996, the restrictions on building and development activity imposed there in shall be applicable in Hyderabad
+                        Metropolitan Development Authority (HMDA) area.
+                    </li>
+                </ul>
+                </li>
+            </li>
+                
+                
+                
+                    <li>
+                        <span>Water pipeline – HMWSSB/Mission Bhaghiratha</span>
+                        <ul>
+                            <li>
+                                In case of site falling in the vicinity of water pipe line prior permission shall be obtained from concerned authority
+                                (HMWSSB/Mission Bhaghiratha).
+                            </li>
+                        </ul>
+                    </li>
+                    
+                
+
+                
+                    <li>
+                        <span>Railways- Railways Department</span>
+                        <ul>
+                            <li>
+                                The distance between the Railway Property Boundary and the edge of the building if more than 30m as per Indian Railways
+                                Works Manual No Objection Certificate (NOC) given by the Railway Authorities.
+
+                            </li>
+                        </ul>
+                    </li>
+                    
+                
+               
+                    <li>
+                        <span>Electrical Lines – Energy Department (TSTRANSCO)</span>
+                        <ul>
+                            <li>
+                                In case of sites in the vicinity of High-Tension Electricity Transmission Lines besides taking other safety precautions,
+                                a minimum safety distance (both vertical and horizontal) of 3m shall be maintained between the building and the High
+                                Tension Electricity Lines and 1.5m shall be maintained between the building and the Low Tension Electricity Lines.
+                            </li>
+                            <li>
+                                In case of Electricity Tower lines, the land all along below the tower line shall be developed as green belt to an
+                                extent of the width of tower base and on either side of green belt there shall be a minimum of 10m wide roads or as
+                                defined in the Master Plan.
+                            </li>
+                        </ul>
+                    </li>
+                    
+                
+               
+                    <li>
+                        <span>Airport – Airports Authority of India</span>
+                        <ul>
+                            <li>
+                                For building activity within the Restricted Zone / Air Funnel Zone near the airport, necessary clearance from the
+                                concerned Airport Authority shall be obtained.
+                            </li>
+                            <li>
+                                The building heights and other parameters shall be regulated as per the stipulations of the Airport Authority of India
+                                as notified in Gazette of India Extraordinary (S.O.1589) dated 30-06-2008 and as amended from time to time by Ministry
+                                of Civil Aviation, Government of India.
+
+                            </li>
+                            <li>
+                                All buildings of height more than 18 mtrs shall be referred to Airport Authority of India
+
+                            </li>
+                            <li>
+                                Irrespective of their distance from the aerodrome, even beyond 22km limit from the Aerodrome Reference Point, no radio
+                                masts or similar installation exceeding 152m in height shall be erected except with the prior clearance from Civil
+                                Aviation Authorities.
+
+                            </li>
+                            <li>
+                                In respect of any land located within 1000m from the boundary of Military Airport no building is allowed except with
+                                prior clearance from the concerned airport authority with regard to building height permissible and safe distance to be
+                                maintained between the building and boundary of the aerodrome.
+                            </li>
+                            <li>
+                                <span>Other Structures</span>
+                                <ul>
+                                    <li>
+                                        No chimneys or smoke producing factories shall be constructed within a radius of 8km from the Airport Reference Point.
+                                    </li>
+                                    <li>
+                                        Slaughter House, Butcheries, Meat shops and Solid Waste Disposal Sites and other areas for activities like depositing of
+                                        garbage which may encourage collection of high flying birds, like eagles and hawks, shall not be permitted within 10 km
+                                        from the Airport Reference Point.
+                                    </li>
+                                    <li>
+                                        Within a 5km radius of the Aerodrome Reference Point, every structure/installation/building shall be designed so as to
+                                        meet the pigeon/bird proofing requirement of the Civil Aviation Authorities. Such requirement may stipulate the
+                                        prohibition of any cavity, niche, or other opening on the exterior of such building/installation/structure so as to
+                                        prevent the nesting and habitation of pigeon or other birds.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>  
+                
+                    <li>
+                        <span>Provisions laid under EIA Notification-2006 – TSPCB(SEIAA)</span>
+                        <ul>
+                            <li>
+                                Buildings and Constructions Projects ≥ 20,000 sq.mtrs and < 1,50,000sq.mtrs of built up area and Townships and
+                                    development Projects (Layout) covering an area ≥ 50 hectares or built up area ≥ 1,50,000 sq.mtrs shall obtain
+                                    Environmental Clearance from SEIAA of TSPCB.
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <span>Defense Establishments – Defence Authority</span>
+                        <ul>
+                            <li>
+                                In case of Sites within 500m distance from the boundary of Defense Areas / Military Establishments prior clearance of
+                                Defense Authority shall be obtained.
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <span>Oil / Gas Pipelines – Concerned Gas/Oil Companies</span>
+                        <ul>
+                            <li>
+                                In case of Sites in the vicinity of Oil / Gas pipelines, clearance distance and other stipulations of the Respective
+                                Authority shall be complied with. The Oil / Gas Authorities shall also specify the clearances required stretch wise to
+                                Local Body.
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <span>Protected Monuments – National Monument Authority and State Archaeological Department</span>
+                        <ul>
+                            <li>
+                                In case of Sites located within the distance up to 100m from protected monuments as notified under Archeological
+                                Monuments and Ancient Sites and Remains Act 1955 and as amended no construction is allowed.
+                            </li>
+                            <li>
+                                For the Sites located within distance of above 100m and up to 200m from the protected monuments, the construction is
+                                allowed only after obtaining prior permission from the National Monument Authority.
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <span>Heritage Structures – Heritage Conservation Committee</span>
+                        <ul>
+                            <li>
+                                For the Sites located within the vicinity of any Heritage Structure notified as per the respective law, the prior
+                                clearance from the concerned authority (Heritage Conservation Committee) shall be obtained.
+                            </li>
+                        </ul>
+                    </li>
+               
+                    <li>
+                        <span>Fire NOC – Fire Services Department</span>
+                        <ul>
+                            <li>
+                                Application shall be referred to Director General State Disaster and Fire Services Department or his authorized officer,
+                                if the height of the building is or higher than 18 mts for residential buildings, 15 mts and above and buildings of
+                                public congregation like Educational buildings, Cinema theatre, Function Hall and Other Assembly buildings on plot area
+                                of 500 Sqmts and above or of height 6.00 mts.
+                            </li>
+                            <li>
+                                The Fire Department shall examine and report either shortfall or clearance within the respective time limits. 
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <span>Tree felling – Excise and Forest Department</span>
+                        <ul>
+                            <li>
+                                In case of felling the income generating trees for development/construction of building prior permission shall be
+                                obtained from Forest Department.
+                            </li>
+                            <li>
+                                In case of felling of toddy trees for development/construction of building prior shall be obtained from Excise
+                                Department.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <span>NOC for Cinema theatres/Multiplexes – Police Department (Traffic)</span>
+                        <ul>
+                            <li>
+                                In case of construction of cinema theaters/ multiplexes prior permission shall be obtained from Commissioner of Police
+                                (Traffic) prior to construction activity.
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <span>Religious Structures</span>
+                        <ul>
+                            <li>
+                                In case of Sites located within a radius of 100m from the notified religious structure as given in the list in Annexure
+                                – VII of Building Rules GO MS 168 Dt 07.04.2012/ notified from time to time, the construction is allowed up to 10m
+                                height only.
+                            </li>
+                            <li>
+                                For the Sites located within a radius of above 100m and up to 300m from the notified religious structure as given in the
+                                list in Annexure– VII of Building Rules GO MS 168 Dt 07.04.2012/ notified from time to time, only non-high rise
+                                structures are allowed.
+                            </li>
+                        </ul>
+                    </li>
+                
+</ol> 
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<div id="footer"></div>
+<script
+        src="../js/jquery-3.3.1.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/popper.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/bootstrap.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/owl.carousel.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.sticky.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.waypoints.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.animateNumber.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.fancybox.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/jquery.easing.1.3.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/aos.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/moment.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/main.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/languageManager.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../js/fontSizeChanger.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156171945-1');
+
+
+</script>
+<script
+        src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+        defer=""
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      setInterval(function(){
+        document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+      }, 1000);
+
+
+</script>
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      jQuery(document).ready(function(){
+          jQuery("#carousel").owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            margin: 0,
+            autoplayTimeout:4000,
+            autoplayHoverPause:false,
+            nav: false,
+            dots: true
+          });
+          var language = getSelectedLanguage();
+          if(language == '')
+            jQuery("#languageSelectionModal").modal('show');
+          else
+            redirectToLanguageHome(language)
+      });
+
+
+</script>
+<script>
+    $(document).ready(function(){
+            $("#footer").load("footer.html");
+        ;
+    });
+    </script>
+    <script>
+        $(document).ready(function(){
+                $("#header").load("header.html");
+            ;
+        });
+        </script>
+</body>
+</html>

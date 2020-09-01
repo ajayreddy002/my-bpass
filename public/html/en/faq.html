@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+<head>
+  <title>TS-bPASS, Self certification portal for Citizens</title>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+  />
+  <link
+          href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../fonts/icomoon/style.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+  <link rel="stylesheet" href="../css/aos.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/ticker.css" />
+</head>
+<!--Start of Tawk.to Script-->
+<script>setTimeout(function () { var e, t; e = document, (t = e.createElement("script")).type = "text/javascript", t.async = !0, t.setAttribute("data-botid", "iFSrs4Z_VvrF"), t.src = "https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v=" + Date.parse(new Date()), e.getElementsByTagName("body")[0].appendChild(t) }, 3e3);</script>
+<!--End of Tawk.to Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/ticker.js"></script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<!-- Apply Modal -->
+<div
+      class="modal row fade"
+      id="applyNowModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="applyNowModalLabel"
+      aria-hidden="true"
+>
+  <div class="modal-dialog  modal-dialog-centered dropdown-popup" role="document">
+      <div class="modal-content col-12 text-black">
+          <div class="modal-body row">
+              <div class="col-12">
+                  <a href="/application/new"
+                     type="button">Building Permission</a>
+              </div>
+              <div class="col-12">
+                  <a href="../../en/self-certification/layout"
+                     type="button">Layout Permission</a>
+              </div>
+              <div class="col-12">
+                  <a
+                          href="http://occupancycertificate.s3-website-eu-west-1.amazonaws.com/"
+                          type="button">Occupancy Certificate</a>
+              </div>
+              <div class="col-12">
+                  <a href="https://tsbpass.enforcement.srshta.com/Citizen_Complaint"
+                     type="button"> Enforcement</a>
+              </div>
+              <div class="col-12">
+                  <a href="/tsbpass.com/support"
+                     type="button">Land use Certificate </a>
+              </div>
+              <div class="col-12">
+                  <a href="tsbpass.com/support"
+                     type="button">Change of Land use</a>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<!-- Language selection modal-->
+<div
+      class="modal row fade"
+      id="languageSelectionModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="languageSelectionModalLabel"
+      aria-hidden="true"
+>
+  <div class="modal-dialog  modal-dialog-centered" role="document">
+      <div class="modal-content col-12 text-black">
+          <div class="modal-header">
+              <h5 class="modal-title" id="languageSelectionModalLabel">
+                  Choose your language
+              </h5>
+              <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+              >
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body row text-center">
+              <div class="col-4">
+                  <button
+                          onclick="setLanguageAndRedirect('en')"
+                          type="button"
+                          class="btn btn-primary text-white px-4 py-2">
+                      English
+                  </button>
+              </div>
+              <div class="col-4">
+                  <button
+                          onclick="setLanguageAndRedirect('te')"
+                          type="button"
+                          class="btn btn-primary text-white px-4 py-2">
+                      తెలుగు
+                  </button>
+              </div>
+              <div class="col-4">
+                  <button
+                          onclick="setLanguageAndRedirect('ur')"
+                          type="button"
+                          class="btn btn-primary text-white px-4 py-2">
+                      اردو
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+  <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="site-wrap" id="home-section">
+  <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+              <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+  </div>
+
+
+  <header
+          class="site-navbar js-sticky-header site-navbar-target"
+          role="banner"
+          id="header-tsbpass"
+          style="margin-top: 0px;"
+  >
+      <div style="padding-left: 15px;">
+          <div class="row align-items-center position-relative">
+              <div class="row support">
+                  <p id="date" class='font-size-12'></p>
+                  <div class='support-inner'>
+                      <a target="_blank" href="tel:040-22666666" class='font-size-12'>040-22 66 66 66</a>
+                      <a target="_blank" href="/html/en/faq.html" class=' font-size-12'>FAQs</a>
+                      <a href="http://tsbpass.com/support" target="_blank"
+                         class='text-uppercase font-size-12 external'>Support</a>
+                      <a class='language-wrapper' data-toggle="modal" data-target="#languageSelectionModal">
+                          <span class='text-uppercase font-size-12'>Language</span>
+                          <img src='../images/language.svg' class='language' alt='language' />
+                      </a>
+                      <button id="btn-decrease">A-</button>
+                      <button id="btn-orig">A</button>
+                      <button id="btn-increase">A+</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
+
+  <div id="header"></div>
+    <!-- <div class="sub-header">
+        <div class="announcement">
+          <div>ANNOUNCEMENTS</div>
+          <marquee direction="left">
+            Telangana State Building Permission Approval and Self Certification
+            System
+          </marquee>
+        </div>
+      </div> -->
+      <div class="site-section" id="faq-section">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>Frequently Asked Questions</h2>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>GENERAL</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is meant by TS-bPASS?
+                </h3>
+                <p>
+                  Telangana State Layout & Building Permission Approval and
+                  Self-Certification System. In this system all the Layout &
+                  Building permissions are processed and disposed through
+                  Online.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>
+                  What is meant by Single Window System?
+                </h3>
+                <p>
+                  Single Window System is a facility to process all layout and
+                  building applications for permissions through online by
+                  streamlining the different processes and approvals (NOCs) in
+                  order to act as a single point of contact for requesting
+                  various services on submission of required documents and fees.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is Self certification and where it is applicable?
+                </h3>
+                <p>
+                  Self-certification is declaration to be submitted by the
+                  applicant regarding the proposals and documents which are in
+                  conformity with rules and regulations.
+                </p>
+                <p>
+                  ‘Self-Certification’ system is applicable - For Individual
+                  residential buildings constructed in plot size upto 500 sq mts
+                  and height upto 10 mts and the proposal which is in accordance
+                  with the Master plan /Detailed Planning scheme / Local Area
+                  Plan and building rules. For Layout proposals which are in
+                  accordance with the Master plan /Detailed Planning scheme /
+                  Local Area Plan and Layout rules.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What are the Prerequisites for the ‘Self-Certification’?
+                </h3>
+                <p>
+                  The following will be the perquisites for the
+                  ‘Self-Certification
+                </p>
+                <p>
+                  1. Online application form along with declaration duly
+                  Self-certifying regarding the size of the plot and floors and
+                  ownership document including EC and PDF document of proposed
+                  plan.
+                </p>
+                <p>
+                  2. Undertaking to be submitted with self –certification
+                  regarding personal accountability and liability in case of
+                  false declaration.
+                </p>
+                <p>
+                  3. Undertaking to be submitted regarding violations of
+                  sanctioned plan if any found, the Government or the
+                  Commissioner or the Agency authorized will take up the
+                  demolition without issuance of any notice.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Applicability of Single window system?
+                </h3>
+                <p>
+                  For Plot Size above 500 sq mts and height above 10 mts there
+                  shall be a Single window system and all commercial buildings,
+                  High Rise Buildings, Group Development Schemes, Group Housing,
+                  Apartment Complexes, Multiplexes, Non-residential buildings
+                  and other such constructions, which require multiple NOCs, one
+                  common application form shall be submitted through web based
+                  online system as prescribed.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What are the Prerequisites for Single Window System?
+                </h3>
+                <p>
+                  The online application has to be submitted with all requisite
+                  documents as prescribed.
+                </p>
+                <p>
+                  The online system shall not accept the application unless all
+                  such documents are submitted. Such documents upon submission
+                  shall be examined by the single window committee set up for
+                  this purpose and shortfalls or incompleteness or cases where
+                  further information or clarification is needed shall be
+                  communicated to the applicant within 10 days from the date of
+                  submission.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What happens when there is no communication by the single
+                  window system?
+                </h3>
+                <p>
+                  If no order is issued on the building application within the
+                  time prescribed, then the approval will be deemed to have been
+                  issued, as prescribed
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>LAYOUT PERMISSIONS</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>I
+                  have purchased the land of 5-00 acres which is adjacent to
+                  water body. Can I apply for layout permission?
+                </h3>
+                <p>
+                  You can apply for layout permission in Self-Certification
+                  System it will examine by the District Level Committee headed
+                  by District Collector consisting of the members as prescribed
+                  including Irrigation Department and Revenue Department.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >The land in conservation zone as per Master Plan, is it
+                  eligible for layout approval?
+                </h3>
+                <p>
+                  No, according to the zoning regulations the layouts are not
+                  permissible in Conservation Zone.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>My
+                  land is adjacent to High Tension tower line. Can I get Layout
+                  permission?
+                </h3>
+                <p>
+                  Yes, as per the rules, the land below the tower lines, to the
+                  width of tower base shall be developed as Greenery and from
+                  the tower base, 10mts wide roads on either side shall be
+                  provided.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is the percentage of open land/park and other
+                  requirements required for layout approval?
+                </h3>
+                <p>
+                  In any layouts, you need to provide 7.5% for parks and
+                  playgrounds, 1.00% for social infrastructure, 1.00% for
+                  utilities such as water reservoir, septic tank/sewerage
+                  treatment plant, electric transformer, solid waste management
+                  etc., 0.5% for common parking space.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Whether the 25’-00” internal roads are permissible for layout
+                  approval?
+                </h3>
+                <p>
+                  No, the minimum width of internal roads should be
+                  12.00mts/40’-00” wide.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >After approval of layout, can I sell all the layout plots?
+                </h3>
+                <p>
+                  No, you can sell only 85% of plotted area. The layout owner
+                  shall mortgage minimum 15% of the plotted area with the
+                  concerned Municipality, as indicated in approved draft
+                  Tentative layout Plan This 15% mortgaged plotted area will be
+                  released by District Level TSBPASS Committee on compliance of
+                  the payment of necessary fee & charges and receiving copy of
+                  relinquishment mortgaged deed.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Whether the Municipalities/Municipal Corporations are
+                  empowered to sanction the layouts?
+                </h3>
+                <p>
+                  No, the District Level TSBPASS Committee up to 2.50 Acres &
+                  State Level Committee above 2.5 Acres are empowered to
+                  sanction the layout.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>My
+                  site is abutting to katcha road, whether the layout will be
+                  approved?
+                </h3>
+                <p>
+                  Yes, but you need to form the WBM road at the time of release
+                  of Draft layout and to form the BT road along with internal
+                  roads before approval of final layout.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>BUILDING PERMISSIONS</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >How to get the building permissions through TSBPASS?
+                </h3>
+                <p>
+                  The applicant is required to upload the required documents as
+                  per the check list duly making initial fee of Rs. and DT&CP
+                  user charges through TSBPASS online system. i.e.,
+                  (htttp//:tsbpass.telangana.gov.in)
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Who can make registration and to pay Rs.1/- registration fee?
+                </h3>
+                <p>
+                  In plot size up to 75 Sq.Yds  and the construction
+                  of ground or ground + 1 upper floor is not required any
+                  permission, however the applicant need to register online
+                  through TSBPASS web portal and registration fee can be paid
+                  along with first property tax receipt.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>I
+                  have purchased a plot of 150 Sq.m. in un-approved layout,
+                  Shall I apply for a building permission?
+                </h3>
+                <p>
+                  Yes, You can apply for permission and get online permission
+                  through self certification system, but the sale deed documents
+                  registered on or before 28-10-2015 in old municipalities and
+                  registered on or before 30-03-2018 as per G.O.Ms.No.251 MA
+                  dt:14-10-2019, 261MA dt.29-10-2019 & 265 MA dt:08-11-2019 for
+                  newly constituted municipalities will only considered.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What are consequences if does not apply for building
+                  permission and layout permission?
+                </h3>
+                <p>
+                  The District Level Force Committee headed by district
+                  collector will detect and take up the demolition of such
+                  un-lawful executed building / layout without issuing notice as
+                  per provisions of section 174 (4) of TMA Act, 2019.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>I
+                  constructed G+1 in plot area of 200 Sq.m. with valid
+                  permission, shall I apply for Occupancy certificate?
+                </h3>
+                <p>
+                  No, the issue of occupancy certificate in case of individual
+                  residential building in plots area upto 200 Sq.m. with a
+                  height of 7.00 m are exempted for applying occupancy
+                  certificate.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is deemed permission?
+                </h3>
+                <p>
+                  If the permission will not be issued with in a span of 21 days
+                  such permission will be treated as deemed permission.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>My
+                  Neighbor has obtained the building permission by the submitted
+                  invalid documents and mis-represented the facts of statement,
+                  what will be the action?
+                </h3>
+                <p>
+                  If the deemed approval has been obtained by mis-representing
+                  the facts or constructed the building rules, zoning
+                  regulations, master plan land use provisions etc.., such
+                  permission will be revoked by the Municipal Commissioner
+                  concerned within 21 days.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>My
+                  plot is falling in the bed of water bodies like River,
+                  Vagu,Lake, Pond, Kunta, Nala etc. shall I apply for building
+                  permission?
+                </h3>
+                <p>
+                  No, the plots falling in the bed of water bodies F.T.L. of
+                  like River, Vagu,Lake, Pond, Kunta, Nala etc.. as per notified
+                  master plan, such building applications cannot be considered
+                  for permission.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>If
+                  the plot is abutting to a water body like River, Vagu,Lake,
+                  Pond, Kunta, Nala etc., can be building permission be issued?
+                </h3>
+                <p>
+                  NOC required from irrigation and revenue departments.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>SERVICE LEVEL APPROACH FOR FILE PROCESSING</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>To
+                  whom shall i approach to submit the building application?
+                </h3>
+                <p>
+                  You can directly submit your application, through online
+                  portal – TSBPASS.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Who are the authorized persons for uploading the application?
+                </h3>
+                <p>
+                  The applicant himself can upload the application after
+                  registering in the online TSBPASS portal.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What shall be payment to be made at the time of application?
+                </h3>
+                <p>
+                  Initial processing charges basing on the type of the building
+                  permission sought which will be known while uploading the
+                  application.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Whether the services of the Architect to be taken for up
+                  loading the building plans.
+                </h3>
+                <p>
+                  It is up to the applicant to decide.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Are there any standard building plans based available for
+                  different plot sizes.
+                </h3>
+                <p>
+                  Standard building plans are available in the portal.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >When shall i have to pay the building fee
+                </h3>
+                <p>
+                  It will be after receiving the fee intimation letter.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Will i get the approved hard copy of the plan from the Urban
+                  local body.
+                </h3>
+                <p>
+                  No. You can download from the website portal.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >How can I verify the approved building permission?
+                </h3>
+                <p>
+                  By quoting the building application Number, the approved
+                  building permission copy can be downloaded.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>Is
+                  digital approved building plans eligible for obtaining loan
+                  from financial institutions.
+                </h3>
+                <p>
+                  Yes.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>TIMELINES</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>In
+                  how many days, the building permission is processed?
+                </h3>
+                <p>
+                  21 Days.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is deemed permission?
+                </h3>
+                <p>
+                  If the application is not processed in 21 days, the building
+                  permission is deed to have been granted.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Time limit for payment of fee.
+                </h3>
+                <p>
+                  The applicant shall comply for payment of fee within 15 days
+                  and if the payment is not made within 15 days, the applicant
+                  shall pay within another 15 days of time on payment of 10% of
+                  interest.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Time limit for shortfall information compliance.
+                </h3>
+                <p>
+                  15 days.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>If
+                  shortfall information is not furnished in time limits, what
+                  will be status of my building application?
+                </h3>
+                <p>
+                  The application will be rejected automatically.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>In
+                  how many days a complaint filed will be disposed.
+                </h3>
+                <p>
+                  One week.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>DOCUMENTS</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What are the documents to be uploaded for building
+                  permission.
+                </h3>
+                <p>
+                  Basing on the type of building proposal, the details of the
+                  documents will be prompted for uploading.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>Is
+                  attestation of the Gazetted officer necessary
+                </h3>
+                <p>
+                  The applications is being processed based on
+                  self-certification of the applicants and hence not applicable.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >How to collect the approved plans and proceedings.
+                </h3>
+                <p>
+                  Can be downloaded from the TSBPASS portal.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>Is
+                  EC to be submitted?
+                </h3>
+                <p>
+                  Yes.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>I
+                  have only tax receipts in respect of ownership of site. How
+                  can I submit the ownership documents?
+                </h3>
+                <p>
+                  The applicant shall obtain ownership certificate from the
+                  respective ULB, along with the tax receipts
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Permission obtained by misrepresentation of facts and false
+                  documents.
+                </h3>
+                <p>
+                  Permission will be revoked and action initiated for demolition
+                  of the building, penal charges, criminal proceeding etc.,
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+              <h2>ENFORCEMENT</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Who is the enforcement authority for controlling the
+                  unauthorised constructions?
+                </h3>
+                <p>
+                  Special Task Force headed by the District Collector.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>In
+                  how many days action taken on a complaint filed on
+                  unauthorised building.
+                </h3>
+                <p>
+                  15 days.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Whom shall I approach if i am not satisfied with the action
+                  taken on my complaint?
+                </h3>
+                <p>
+                  District Collector.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>Is
+                  there any mechanism for filing complaints, other than manual
+                  process.
+                </h3>
+                <p>
+                  You can file through online consoles such as call centre /
+                  mobile app/ web / toll free number.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Will the name of the person complaining kept secret.
+                </h3>
+                <p>
+                  Yes.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What are the actions that can be initiated on deviated
+                  construction.
+                </h3>
+                <p>
+                  Demolition of the unauthorised portion of the building, penal
+                  charges, criminal proceeding etc.,
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Will any notice issued before undertaking demolition of
+                  unauthorised constructions / deviations.
+                </h3>
+                <p>
+                  No.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Who shall bear the cost of demolition?
+                </h3>
+                <p>
+                  The land / building owner.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Can constructions be made in the Parking area.
+                </h3>
+                <p>
+                  No.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is special task force?
+                </h3>
+                <p>
+                  Special Task force is an Enforcement wing at each District
+                  level under the chairmen ship of District Collector which
+                  monitor the identification and action against the un
+                  authorized Layouts Buildings in deviation of approved plans
+                  and Buildings constructed without obtaining permission.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >How the special task force identify the unauthorized Layout
+                  /Buildings in deviation to sanctioned Plan?
+                </h3>
+                <p>
+                  The special task force Enforcement teams will frequently
+                  inspects the areas to identify the unauthorized Buildings/
+                  layouts.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>
+                  Can a citizen can give complement/ information about the
+                  unauthorized construction or any grievance?
+                </h3>
+                <p>
+                  The citizen can give their complaints regarding unauthorized
+                  Buildings OR violations through online consoles such as call
+                  center/Mobile App/Toll Free number etc.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is the action against a Building in deviation to the
+                  sanctioned plan?
+                </h3>
+                <p>
+                  The task force team leader will asserts the deviation into the
+                  categories i.e less than 10% deviation and more than 10%
+                  deviation ( in respect of sited and rear setbacks only ) and
+                  the decision will be taken for revocation of Building
+                  permission and may take action such as levy of penalty of 25%
+                  of value of land/ three years imprisonment/demolition without
+                  notice.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>Is
+                  there any penalty provision for construction made in area
+                  earmarked for parking space?
+                </h3>
+                <p>
+                  Yes , in case of Buildings where area earmarked for parking is
+                  being put to other use , the penalty may be levied up to 25%
+                  of the value of the land or Building including land as fixed
+                  by the Registration department, which shall in case be less
+                  than 50% of the said amount beside demolition.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is the action, if the permission for layout or Building
+                  is obtained in self certification system by making false
+                  statement or misrepresenting the facts?
+                </h3>
+                <p>
+                  In case the permission is obtain by making false statement or
+                  misrepresentation of facts the same will be revoked /cancelled
+                  and the action for demolition will be taken up without any
+                  notice to the owner /Builder.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >Whether the construction can be commenced prior to the
+                  obtaining approval?
+                </h3>
+                <p>
+                  No, the owner/Builder shall not commence the construction of
+                  Building or Layout without obtaining permission from ULB.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >How many days will it take to initiate action on identified
+                  buildings or any complaint is received against any Building
+                  /Layout?
+                </h3>
+                <p>
+                  The identified cases will be examined within one week from
+                  such information and appropriate action will be initiated.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span
+                  >What is the further action after demolition?
+                </h3>
+                <p>
+                  After the demolition:
+                </p>
+                <p>
+                  1. The cost of demolition will be recovered from the
+                  owner/Builder.
+                </p>
+                <p>
+                  2. Information will be provided to registration department to
+                  include in prohibitory register.
+                </p>
+                <p>
+                  3. The concerned Electricity/water supply departments will be
+                  informed not to give any service connection of temporary or
+                  permanent to the respective property.
+                </p>
+              </div>
+              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-black h4 mb-4">
+                  <span class="icon-question_answer text-primary mr-2"></span>If
+                  the complaint is given by a citizen there is any threat to the
+                  individual?
+                </h3>
+                <p>
+                  No, the particulars of the informants /complaints is not
+                  disclosed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+   
+    <div id="footer"></div>
+<script
+      src="../js/jquery-3.3.1.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/popper.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/bootstrap.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/owl.carousel.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.sticky.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.waypoints.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.animateNumber.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.fancybox.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/jquery.easing.1.3.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/aos.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/moment.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/main.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/languageManager.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+      src="../js/fontSizeChanger.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156171945-1');
+
+
+</script>
+<script
+      src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+      data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+      defer=""
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+    setInterval(function(){
+      document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+    }, 1000);
+
+
+</script>
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#carousel").owlCarousel({
+          loop: true,
+          autoplay: true,
+          items: 1,
+          margin: 0,
+          autoplayTimeout:4000,
+          autoplayHoverPause:false,
+          nav: false,
+          dots: true
+        });
+        var language = getSelectedLanguage();
+        if(language == '')
+          jQuery("#languageSelectionModal").modal('show');
+        else
+          redirectToLanguageHome(language)
+    });
+
+
+</script>
+<script>
+  $(document).ready(function(){
+          $("#footer").load("footer.html");
+      ;
+  });
+  </script>
+      <script>
+        $(document).ready(function(){
+                $("#header").load("header.html");
+            ;
+        });
+        </script>
+</body>
+</html>

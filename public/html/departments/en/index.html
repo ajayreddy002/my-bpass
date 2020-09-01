@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ackground-color: #d97600;
+  border-color: #cc6f00;
+-->
+
+<head>
+    <title>TS-bPASS, Self certification portal for Citizens</title>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <link
+            href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../../css/aos.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<!--Start of Tawk.to Script-->
+ <script>setTimeout(function(){var e,t;e=document,(t=e.createElement("script")).type="text/javascript",t.async=!0,t.setAttribute("data-botid","iFSrs4Z_VvrF"),t.src="https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v="+Date.parse(new Date()),e.getElementsByTagName("body")[0].appendChild(t)},3e3);</script>
+<!--End of Tawk.to Script-->
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<!-- Apply Modal -->
+<div
+        class="modal row fade"
+        id="applyNowModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="applyNowModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered dropdown-popup" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-body row">
+                <div class="col-12">
+                    <a href="/application/new"
+                       type="button">Building Permissions</a>
+                </div>
+                <div class="col-12">
+                    <a href="../../en/self-certification/layout"
+                       type="button">Layout Permissions</a>
+                </div>
+                <div class="col-12">
+                    <a
+                            href="http://occupancycertificate.s3-website-eu-west-1.amazonaws.com/"
+                            type="button">Occupancy Certificate</a>
+                </div>
+                <div class="col-12">
+                    <a href="https://tsbpass.enforcement.srshta.com/Citizen_Complaint"
+                       type="button"> Enforcement</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Language selection modal-->
+<div
+        class="modal row fade"
+        id="languageSelectionModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="languageSelectionModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageSelectionModalLabel">
+                    Choose your language
+                </h5>
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body row text-center">
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('en')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        English
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('te')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        తెలుగు
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button
+                            onclick="setLanguageAndRedirect('ur')"
+                            type="button"
+                            class="btn btn-primary text-white px-4 py-2">
+                        اردو
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header
+            class="site-navbar js-sticky-header site-navbar-target"
+            role="banner"
+            id="header-tsbpass"
+    >
+        <div class="container-fluid">
+            <div class="row align-items-center position-relative" style='min-height: 76px'>
+                <div class="site-logo">
+                    <a href="index.html" class="text-black">
+                        <img src="../../images/logo.png"
+                             class="img img-fluid"
+                             id="tsbpass-logo" />
+                        <span class="text-primary ml-2">TS-bPASS</span></a>
+                </div>
+                <div class="col-12">
+                    <nav
+                            class="site-navigation text-right ml-auto "
+                            role="navigation">
+                        <ul
+                                class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <li style="order:2;">
+                                <a href="#home-section" class="nav-link text-uppercase">Home</a>
+                            </li>
+                            <li style="order:3;">
+                                <a href="#why-us-section"
+                                   target="_blank"
+                                   class="nav-link text-uppercase external">About TS-bPASS</a>
+                            </li>
+                            <li class="dropdown" style="order:6;">
+                                <a class="dropdown-toggle internal text-uppercase"
+                                   data-toggle="dropdown"
+                                   href="#">Resources</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#contact-section" class="nav-link"> GO's and Acts</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Rules and Regulations</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Help Manuals</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Training Videos</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown" style="order:6;">
+                                <a class="dropdown-toggle internal text-uppercase"
+                                   data-toggle="dropdown"
+                                   href="#">Departments</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="http://dcrportal.telangana.gov.in/" class="nav-link">DCR Portal</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Fire Department</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Fire Department</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Police Department</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="http://tsbpass.com/support"
+                                           class="external"
+                                           target="_blank">Revenue Department</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="order: 6">
+                                <a class="nav-link text-uppercase" href="/login">
+                                    Citizen Login
+                                </a>
+                            </li>
+                            <a class="btn btn-primary text-white px-4"
+                               data-toggle="modal"
+                               data-target="#applyNowModal"
+                               style="order:6;cursor: pointer;">
+                                <span class='apply'>Apply Now</span>
+                            </a>
+                            <li class='only-mobile' style="order:1;">
+                                <a data-toggle="modal"
+                                   data-target="#languageSelectionModal"
+                                   style="padding:0;">
+                                    <i class="language-selector icon-g_translate"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div
+                        class="toggle-button d-inline-block d-lg-none"
+                        style="z-index: 10;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+                    ><span class="icon-menu h3"></span
+                    ></a>
+                </div>
+                <div class="row support">
+                    <p id="date" class='font-size-12'></p>
+                    <div class='support-inner'>
+                        <a href="tel:040-23314622" class='font-size-12'>040-2331 4622</a>
+                        <a href="../faq/en/index.html" class='text-uppercase font-size-12'>FAQ</a>
+                        <a href="http://tsbpass.com/support" target="_blank"
+                           class='text-uppercase font-size-12 external'>Support</a>
+                        <a class='language-wrapper' data-toggle="modal" data-target="#languageSelectionModal">
+                            <span class='text-uppercase font-size-12'>Language</span>
+                            <img src='../images/language.svg' class='language' alt='language' />
+                        </a>
+                        <button id="btn-decrease">A-</button>
+                        <button id="btn-orig">A</button>
+                        <button id="btn-increase">A+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+    <div class="block__73694 border-top" id="why-us-section">
+        <div class='salient-features'>
+            <div class="container">
+                <div class="row d-flex no-gutters salient-features-inner">
+                    <h2 class="col-12 text-center">Departments</h2>
+                    <p class='why-us-section-description' style="text-align :justify">
+                        The Telangana Government has enacted the “Telangana
+                        Municipalities Act, 2019” (Act No.11 of 2019) to consolidate and
+                        provide for the constitution of Municipalities (Municipal
+                        Councils and Municipal Corporations) other than the Greater
+                        Hyderabad Municipal Corporation in the State of Telangana in
+                        terms of Part IX-A of the constitution of India and for matters
+                        connected therewith or incidental thereto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<footer class="site-footer footer">
+    <div class='container'>
+        <div class="row align-items-start justify-content-between mb-3">
+            <ul class="col-6 col-lg-3">
+                <li class='footer-title'>Departments</li>
+                <li><a href='./index.html'>ContinuingEducation.com</a></li>
+                <li><a href='./index.html'>Leadership Team</a></li>
+                <li><a href='./index.html'>Accreditation</a></li>
+                <li><a href='./index.html'>Write for Us</a></li>
+            </ul>
+            <ul class="col-6 col-lg-3">
+                <li class='footer-title'>Resources</li>
+                <li><a href='./index.html'>LRS</a></li>
+                <li><a href='./index.html'> HMDA</a></li>
+                <li><a href='./index.html'>Evidence-Based Practice</a></li>
+                <li><a href='./index.html'>Free CE Alerts</a></li>
+                <li><a href='./index.html'>CE-PRO Membership</a></li>
+                <li><a href='./index.html'>First Course Free</a></li>
+            </ul>
+            <ul class="col-6 col-md-4 col-lg-3">
+                <li class='footer-title'>Support</li>
+                <li><a href='./index.html'>Help</a></li>
+                <li><a href='../faq/en/index.html'>FAQs</a></li>
+                <li><a href='#contact-us'>Contact Us</a></li>
+                <li><a href='./index.html'>Terms of Service</a></li>
+                <li><a href='./index.html'>Privacy Policy</a></li>
+            </ul>
+            <ul class="col-6 col-lg-3">
+                <li><a href='./index.html' class='opacity-1'>
+                    <img src='../../images/logo-text.png' alt='logo'>
+                </a></li>
+                <!-- <li class='address'>(877) 200 0020 <br /> 1010 Sync St <br />Morrisville, North Carolina 27560</li> -->
+                <li class="address">
+                    <span>Directorate of Town and Country Planning</span><br />
+                    <span>Governament of Telangana,</span><br />
+                    <span>3rd to 5th Floor</span><br />
+                    <span>640,AC Guards Opp: PTI Building</span><br />
+                    <span>Hyderabad - 500004</span>
+                </li>
+                <li>
+                    <img src='../../images/iso.png' alt='iso'>
+                    <img src='../../images/ssl.png' alt='ssl'>
+                    <img src='../../images/pci.png' alt='pci'>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <div class="border-top">
+                    <ul class='row align-items-center justify-content-center footer-bottom-list'>
+                        <li class='col-12 col-lg-4'><a href='./index.html'>Terms and Conditions.</a></li>
+                        <li class="col-12 col-lg-4"><a href='./index.html'>Privacy Statement</a></li>
+                    </ul>
+                    <ul class='row align-items-center justify-content-center footer-bottom-list'>
+                        <li class="col-12"><a href='./index.html'>Copyright ©2020 Telangana State Building Permission Approval and Self Certification System. All Rights Reserved.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script
+        src="../../js/jquery-3.3.1.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/popper.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/bootstrap.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/owl.carousel.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/jquery.sticky.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/jquery.waypoints.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/jquery.animateNumber.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/jquery.fancybox.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/jquery.easing.1.3.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/aos.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/moment.min.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/main.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/languageManager.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+<script
+        src="../../js/fontSizeChanger.js"
+        type="89bce1b35c1b1bc232ae6c30-text/javascript"
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156171945-1');
+
+
+</script>
+<script
+        src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+        defer=""
+></script>
+
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      setInterval(function(){
+        document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+      }, 1000);
+
+
+</script>
+<script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      jQuery(document).ready(function(){
+          jQuery("#carousel").owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            margin: 0,
+            autoplayTimeout:4000,
+            autoplayHoverPause:false,
+            nav: false,
+            dots: true
+          });
+          var language = getSelectedLanguage();
+          if(language == '')
+            jQuery("#languageSelectionModal").modal('show');
+          else
+            redirectToLanguageHome(language)
+      });
+
+
+</script>
+</body>
+</html>

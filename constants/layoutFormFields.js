@@ -1,0 +1,110 @@
+export default {
+  name: null,
+  relationship_type: null,
+  relationship_name: null,
+  aadhaar_number: null,
+  email: null,
+  phone_number: null,
+  contact_address: null,
+
+  co_applicant_name: null,
+  co_applicant_relationship_type: null,
+  co_applicant_relationship_name: null,
+  co_applicant_aadhaar_number: null,
+  co_applicant_email: null,
+  co_applicant_phone_number: null,
+
+  layout_type: null,
+  layout_category: null,
+  plot_area: null,
+  proposed_site_area_for_approval: null,
+  construction_type: null,
+  land_type: null,
+  survey_no: null,
+  ulb_name: null,
+  mandal: null,
+  village: null,
+  revenue_village: null,
+  if_site_area_more_than_proposed_reason: null,
+  is_site_under_sanctioned_master_plan: null,
+  land_use_as_per_master_plan: null,
+  land_allotment_by_govt: null,
+  market_value: null,
+  address: null,
+
+  airport_vicinity: null,
+  national_monument_vicinity: null,
+  heritage_structure_vicinity: null,
+  oil_gas_pipeline_vicinity: null,
+  religious_structure_vicinity: null,
+
+  master_plan_road_affected_area: null,
+  open_space: null, //open space validations
+  buffer_area: null,
+  road_area: null,
+  total_plotted_area: null,
+  max_height: null,
+  total_built_up_area: null,
+
+
+  is_approach_road_existing: null,
+  road_width: null,
+  approach_road_connect_with_public_road: null,
+  status_of_road: null,
+  commencement_of_work_onsite: null,
+
+
+  net_layout_area: null,
+  mortgage_area: null,
+
+  boundary_schedule_north: null,
+  boundary_schedule_east: null,
+  boundary_schedule_west: null,
+  boundary_schedule_south: null,
+
+  town_planner_license_number: null,
+  town_planner_name: null,
+  town_planner_mobile_number: null,
+  town_planner_email_id: null,
+  town_planner_address: null,
+
+  builder_license_number: null,
+  builder_name: null,
+  builder_mobile_number: null,
+  builder_email_id: null,
+  builder_address: null,
+
+
+  surveyor_license_number: null,
+  surveyor_name: null,
+  surveyor_mobile_number: null,
+  surveyor_email_id: null,
+  surveyor_address: null,
+
+
+  architect_license_number: null,
+  architect_name: null,
+  architect_mobile_number: null,
+  architect_email_id: null,
+  architect_address: null,
+
+
+  structural_engineer_license_number: null,
+  structural_engineer_name: null,
+  structural_engineer_mobile_number: null,
+  structural_engineer_email_id: null,
+  structural_engineer_address: null,
+
+  revenue_noc: null,
+  river_boundary: null,
+  water_body_gt_10ha_boundary: null,
+  water_body_lt_10ha_boundary: null,
+  canal_gt_10m_boundary: null,
+  canal_lt_10m_boundary: null,
+  aai_land_layout_mapping: null,
+  land_dev_gt_500000_or_area_gt_200000: null,
+  national_monument_authority: null,
+  heritage_structure: null,
+  oil_gas_authority: null,
+  religious_structures: null,
+}

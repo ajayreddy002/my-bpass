@@ -1,0 +1,18 @@
+.leaderboard-container {
+  margin-top: 15px;
+}
+
+.leaderboard-head-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leaderboard-status-container {
+  display: flex;
+  align-items: center;
+}
+
+.leaderboard-status-container > span {
+  margin-right: 10px;
+}

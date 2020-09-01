@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="te">
+  <!--ackground-color: #d97600;
+    border-color: #cc6f00;
+-->
+
+  <head>
+    <title>
+      తెలంగాణ రాష్ట్రం – బి పాస్, Self certification portal for Citizens
+    </title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../css/aos.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+// tawk
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/5ed1245a8ee2956d73a5cd0d/default';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <!-- Apply Modal -->
+    <div
+      class="modal row fade"
+      id="applyNowModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="applyNowModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+          <div class="modal-header">
+            <h5 class="modal-title" id="applyNowModalLabel">Apply For</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body row text-center">
+            <div class="col-6">
+              <a
+                href="../../te/self-certification/application"
+                type="button"
+                class="btn btn-primary text-white px-3 py-3 mr-1"
+                >Building Permissions</a
+              >
+            </div>
+            <div class="col-6">
+              <a
+                href="../../te/self-certification/layout"
+                type="button"
+                class="btn btn-primary text-white px-3 py-3"
+                >Layout Permissions</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Language selection modal-->
+    <div
+      class="modal row fade"
+      id="languageSelectionModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="languageSelectionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content col-12 text-black">
+          <div class="modal-header">
+            <h5 class="modal-title" id="languageSelectionModalLabel">
+              మీ భాషను ఎంచుకోండి
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body row text-center">
+            <div class="col-4">
+              <button
+                onclick="setLanguageAndRedirect('en')"
+                type="button"
+                class="btn btn-primary text-white px-4 py-2"
+              >
+                English
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                onclick="setLanguageAndRedirect('te')"
+                type="button"
+                class="btn btn-primary text-white px-4 py-2"
+              >
+                తెలుగు
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                onclick="setLanguageAndRedirect('ur')"
+                type="button"
+                class="btn btn-primary text-white px-4 py-2"
+              >
+                اردو
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="site-wrap" id="home-section">
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+      <header
+        class="site-navbar js-sticky-header site-navbar-target"
+        role="banner"
+        id="header-tsbpass"
+      >
+        <div class="container-fluid">
+          <div class="row align-items-center position-relative">
+            <div class="site-logo">
+              <a href="index.html" class="text-black"
+                ><img
+                  src="../images/logo.png"
+                  class="img img-fluid"
+                  id="tsbpass-logo"
+                /><span class="text-primary ml-2" style="font-size: 24px;"
+                  >తెలంగాణ రాష్ట్రం – బి పాస్</span
+                ></a
+              >
+              <p id="date"></p>
+            </div>
+            <div class="col-12">
+              <nav
+                class="site-navigation text-right ml-auto "
+                role="navigation"
+              >
+                <ul
+                  class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block"
+                >
+                  <li style="order:2;">
+                    <a href="#home-section" class="nav-link">హోమ్</a>
+                  </li>
+                  <li style="order:3;">
+                    <a href="#about-section" class="nav-link"
+                      >చట్టాలు / నియమాలు</a
+                    >
+                  </li>
+                  <li style="order:4;">
+                    <a href="../faq/te/index.html" class="nav-link"
+                      >ఎఫ్ ఎ క్య</a
+                    >
+                  </li>
+                  <li style="order:5;">
+                    <a
+                      href="http://dcrportal.telangana.gov.in"
+                      class="external"
+                      target="_blank"
+                    >
+                      Portal Auto DCR
+                    </a>
+                  </li>
+                  <!-- <li class="dropdown" style="order:6;">
+                    <a
+                      class="dropdown-toggle internal"
+                      data-toggle="dropdown"
+                      href="#"
+                      >సంప్రదించండి</a
+                    >
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="#contact-section" class="nav-link"
+                          >Get in touch</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="http://tsbpass.com/support"
+                          class="external"
+                          target="_blank"
+                          >Support</a
+                        >
+                      </li>
+                    </ul>
+                  </li> -->
+
+                  <li style="order:6;">
+                    <a href="#contact-section" class="nav-link">
+                      మమ్మల్ని సంప్రదించండి</a
+                    >
+                  </li>
+                  <li style="order: 6">
+                    <a class="nav-link" href="/login">
+                      వెతకండి
+                    </a>
+                  </li>
+                  <a
+                    class="btn btn-primary text-white px-4"
+                    data-toggle="modal"
+                    data-target="#applyNowModal"
+                    style="order:6;cursor: pointer;"
+                    ><span>ఇప్పుడు దరఖాస్తు</span>
+                  </a>
+                  <li style="order:1;">
+                    <a
+                      data-toggle="modal"
+                      data-target="#languageSelectionModal"
+                    >
+                      <i class="language-selector icon-g_translate"></i>
+                    </a>
+                  </li>
+                  <!-- <li>
+                    <select
+                      onchange="this.options[this.selectedIndex].value && setLanguageAndRedirect(this.options[this.selectedIndex].value);"
+                      style="margin-left:5px"
+                    >
+                      <option value="en">English</option>
+                      <option value="../te/index.html" selected>Telugu</option>
+                      <option value="ur">Urdu</option>
+                    </select>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+            <div
+              class="toggle-button d-inline-block d-lg-none"
+              style="z-index: 10;"
+            >
+              <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+                ><span class="icon-menu h3"></span
+              ></a>
+            </div>
+            <div class="row support">
+              <div>
+                <span class="icon-phone"> </span
+                ><span
+                  ><a href="tel:040-23314622" class="text-black"
+                    >040-2331 4622</a
+                  ></span
+                >
+                <span class="ml-2 mr-2 icon-users"></span
+                ><span class="mr-2"
+                  ><a href="http://tsbpass.com/support">మద్దతు</a></span
+                >
+                <button id="btn-decrease">A-</button>
+                <button id="btn-orig">A</button>
+                <button id="btn-increase">A+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="sub-header">
+        <div class="announcement">
+          <div>ప్రకటన</div>
+          <marquee direction="left">
+            తెలంగాణ స్టేట్ బిల్డింగ్ పర్మిట్ అండ్ సెల్ఫ్ సర్టిఫికేషన్ సిస్టమ్
+          </marquee>
+        </div>
+      </div>
+      <div id="carousel" class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="ftco-blocks-cover-1">
+            <div
+              class="ftco-cover-1 overlay"
+              style="background-image: url('../images/background.jpeg')"
+            >
+              <div class="container">
+                <div class="row align-items-center" style="float: right">
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6">
+                    <h1>తెలంగాణ రాష్ట్రం – బి పాస్</h1>
+                    <p class="mb-5">
+                      తెలంగాణ స్టేట్ బిల్డింగ్ పర్మిట్ అండ్ సెల్ఫ్ సర్టిఫికేషన్
+                      సిస్టమ్
+                    </p>
+                    <div class="form-group d-flex">
+                      <a
+                        class="btn btn-outline-white text-white px-4"
+                        data-toggle="modal"
+                        data-target="#applyNowModal"
+                        ><span style="vertical-align: -webkit-baseline-middle;">
+                          ఇప్పుడు దరఖాస్తు</span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ftco-service-image-1 pb-5">
+              <div class="container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ftco-blocks-cover-1 item">
+            <div
+              class="ftco-cover-1 overlay"
+              style="background-image: url('../images/background1.jpg')"
+            >
+              <div class="container">
+                <div class="row align-items-center" style="float: right">
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6">
+                    <h1>తెలంగాణ రాష్ట్రం – బి పాస్</h1>
+                    <p class="mb-5">
+                      తెలంగాణ స్టేట్ బిల్డింగ్ పర్మిట్ అండ్ సెల్ఫ్ సర్టిఫికేషన్
+                      సిస్టమ్
+                    </p>
+                    <div class="form-group d-flex">
+                      <a
+                        class="btn btn-outline-white text-white px-4"
+                        data-toggle="modal"
+                        data-target="#applyNowModal"
+                        ><span style="vertical-align: -webkit-baseline-middle;">
+                          ఇప్పుడు దరఖాస్తు</span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ftco-service-image-1 pb-5">
+              <div class="container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ftco-blocks-cover-1 item">
+            <div
+              class="ftco-cover-1 overlay"
+              style="background-image: url('../images/background2.jpg')"
+            >
+              <div class="container">
+                <div class="row align-items-center" style="float: right">
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6">
+                    <h1>తెలంగాణ రాష్ట్రం – బి పాస్</h1>
+                    <p class="mb-5">
+                      తెలంగాణ స్టేట్ బిల్డింగ్ పర్మిట్ అండ్ సెల్ఫ్ సర్టిఫికేషన్
+                      సిస్టమ్
+                    </p>
+                    <div class="form-group d-flex">
+                      <a
+                        class="btn btn-outline-white text-white px-4"
+                        data-toggle="modal"
+                        data-target="#applyNowModal"
+                        ><span style="vertical-align: -webkit-baseline-middle;">
+                          ఇప్పుడు దరఖాస్తు</span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ftco-service-image-1 pb-5">
+              <div class="container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block__73694 site-section border-top" id="why-us-section">
+        <div class="container">
+          <div class="row d-flex no-gutters align-items-stretch">
+            <div
+              class="col-12 col-lg-6 block__73422 order-lg-2"
+              style="background-image: url('https://i.gadgets360cdn.com/large/amazon_campus_twitter_1566448040544.jpg');"
+              data-aos="fade-left"
+              data-aos-delay=""
+            ></div>
+            <div
+              class="col-lg-6 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1"
+              data-aos="fade-right"
+              data-aos-delay=""
+              style="padding-left: 0px !important;"
+            >
+              <h2 class="mb-4 text-black">తెలంగాణ రాష్ట్రం – బి పాస్</h2>
+              <h4 class="text-primary">
+                పట్టణ మరియు దేశ ప్రణాళికా రూపకల్పన డైరెక్టరేట్ కి స్వాగతం
+              </h4>
+              <p style="text-align :justify">
+                భారత రాజ్యాంగపు IX-ఏ భాగం రూపంలో దానికి సంబంధించిన లేదా వాటి
+                పరిణామంగా ఏర్పడే వ్యవహారాలకు గాను తెలంగాణా రాష్ట్రంలోని
+                హైదరాబాద్ మహానగరపాలక సంస్థ కాకుండా మిగిలిన మునిసిపాలిటీలను
+                ఏకీకృతం చేయడానికి మరియు మునిసిపాలిటీల ఏర్పాటు నిమిత్తం
+                (మునిసిపల్ కౌన్సిళ్ళు, మునిసిపల్ కార్పోరేషన్ లు) తెలంగాణా
+                ప్రభుత్వం “తెలంగాణా మునిసిపాలిటీల చట్టం, 2019 (2019 లోని చట్టం
+                (యాక్టు నెం.11) ని శాసనంగా రూపొందించింది.
+              </p>
+              <p style="text-align :justify">
+                లేఅవుట్లు, భవనాల ద్వారా స్థలం అభివృద్ధి నిమిత్తం కావల్సిన వివిధ
+                అనుమతులు జారీ చేయడానికై దరఖాస్తులను వేగంగా పరిష్కరించేందుకు
+                తెలంగాణా ప్రభుత్వం, తెలంగాణా మునిసిపల్ యాక్టు, 2019 కి అనుగుణంగా
+                స్థలం యజమాని/డెవలపర్ ఇచ్చే స్వీయప్రమాణ పత్రం (సెల్ఫ్
+                సర్టిఫికేట్) పై ఆధారపడి ఉండే దానిని మరియు యూజర్ స్నేహపూర్వక
+                వాతావరణం ఏర్పరచేందుకు గాను “టి.ఎస్ - బిపాస్” ని ఏర్పాటు చేయడం
+                జరిగింది.
+              </p>
+              <!-- <ul class="ul-check primary list-unstyled mt-5">
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Sed do eiusmod tempor incididunt</li>
+                <li>Ut labore et dolore magna aliqua</li>
+              </ul> -->
+            </div>
+          </div>
+          <div class="row d-flex no-gutters align-items-center mt-3">
+            <h4 class="text-primary">టి.ఎస్ – బిపాస్ ప్రధాన లక్షణాలు</h4>
+            <ul class="ul-check primary list-unstyled mt-3">
+              <li>
+                ప్రతిపాదనలు పరిశీలించడానికి, ప్రతిపాదన తరువాతి సరి నిరూపణ
+                (పోస్ట్ వెరిఫికేషన్) నిర్వహించి, అనధికార అభివృద్ధి పనులు/
+                ఉల్లంఘనలపై అమలు చర్య (ఎన్ ఫోర్సుమెంట్ యాక్షన్) చేపట్టడానికి,
+                జిల్లా కలెక్టర్ అధ్వర్యంలో జిల్లా స్థాయి బిపాస్ కమీటి ఒకటి
+                ఉంటుంది.
+              </li>
+              <li>
+                75 చII గII వరకు ఉండే ప్లాట్ సైజ్ లకు అనుమతి ఏదీ అవసరం ఉండదు.
+                అయితే దరఖాస్తుదారు “అన్ లైన్ లో రిజిస్టర్” చేయవలసి ఉంటుంది.
+              </li>
+              <li>
+                500 చII మీII వరకూ ఉండే ప్లాట్ కి మరియు 10 మీ. ఎత్తు ఉండే
+                భవనానికి దరఖాస్తుదారు ద్వారా, స్వీయ ప్రమాణీకరణ (సెల్ఫ్-
+                సర్టిఫికేషన్) ఆధారంగా తక్షణ బిల్డింగ్ ఆమోదం.
+              </li>
+              <li>
+                10 మీ. కన్నా ఎక్కువ ఎత్తు ఉండే అన్ని భవనాలకు ఏక గవాక్ష ఆమోదం
+                (సింగిల్ విండో అప్రూవల్) మరియు అన్ని నివాసేతర బిల్డింగ్
+                అనుమతులను 21 రోII లోగా మంజూరు చేయబడతాయి.
+              </li>
+              <li>
+                200 చII మీII విస్తీర్ణం మరియు 7 మీ. వరకు ఎత్తు ఉండే ప్లాట్లకు
+                తనఖా ఉండదు.
+              </li>
+              <li>
+                జిల్లా స్థాయి కమీటి ద్వారా బిల్డింగ్ అనుమతుల అనంతర సరి నిరూపణ
+                (పోస్ట్ వెరిఫికేషన్) జరుగుతుంది.
+              </li>
+              <li>
+                తప్పుడు సమాచారానికి, నిజాలు మరుగుపరచిన సందర్భంలోనూ దరఖాస్తుదారు
+                శిక్షకు పాత్రుడౌతాడు.
+              </li>
+              <li>
+                ఉల్లంఘనలు జరిపితే, ఎలాంటి నోటీసు ఇవ్వకుండానే వాటిని తొలగించడం
+                జరుగుతుంది.
+              </li>
+              <li>
+                స్వీయ ప్రమాణీకరణ (సెల్ఫ్- సర్టిఫికేషన్) ఆధారంగా అన్ లైన్ లో
+                ఆక్యూపెన్సీ సర్టిఫికేట్ జారీ చేయబడుతుంది.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="block__73694 site-section border-top  bg-light"
+        id="about-section"
+      >
+        <div class="container">
+          <div class="row d-flex no-gutters align-items-stretch">
+            <div
+              class="col-lg-6 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-2"
+              data-aos="fade-left"
+            >
+              <h2 class="mb-4 text-black">చర్యలు మరియు నియమాలు</h2>
+              <h4 class="text-primary">మీ నియమాలను తెలుసుకోండి</h4>
+              <ul class="ul-check primary list-unstyled mt-5">
+                <li>
+                  మున్సిపాలిటీల చట్టాన్ని డౌన్‌లోడ్ చేయండి (
+                  <a
+                    href="https://drive.google.com/open?id=1-WHyZJkPmRYZJQDbRaKVVUsnR2mstmqO"
+                    >ఆంగ్ల,
+                  </a>
+                  <a
+                    href="https://drive.google.com/open?id=1-a-M2ggRIgRqtcrVMyczFXfMr_tvLNNF"
+                    >తెలుగు
+                  </a>
+                  మరియు
+                  <a
+                    href="https://drive.google.com/open?id=1-P_D7frKxSxMIrfM-e-LaH6cjUwmR_-F"
+                    >ఉర్దూ</a
+                  >)
+                </li>
+                <li>
+                  భవన నియమాలను డౌన్‌లోడ్ చేయండి (
+                  <a
+                    href="https://drive.google.com/open?id=11ZcJkBsDphGExtEjLu3PmUdFChMn_uYr"
+                    >ఆంగ్ల,
+                  </a>
+                  <a
+                    href="https://drive.google.com/open?id=11gjss4UTlf-ya-Ux7JmdZeEfS2fTrKln"
+                    >తెలుగు
+                  </a>
+                  మరియు
+                  <a
+                    href="https://drive.google.com/open?id=11WBTgl54lqQNkQiUCSVdfDf32MWkyOef"
+                    >ఉర్దూ</a
+                  >)
+                </li>
+                <li>
+                  అమలు నియమాలను డౌన్‌లోడ్ చేయండి (
+                  <a
+                    href="https://drive.google.com/open?id=11CtrBNBiHawzYE6fTYoxmiAQTjnw8p7m"
+                    >ఆంగ్ల,
+                  </a>
+                  <a
+                    href="https://drive.google.com/open?id=11KUPHQWOI6R68veOHZKZ4RrRPOGJptqB"
+                    >తెలుగు
+                  </a>
+                  మరియు
+                  <a
+                    href="https://drive.google.com/open?id=11MOVapisxWUb3mtPlNpHtQX5tYa5HJc7"
+                    >ఉర్దూ</a
+                  >)
+                </li>
+                <li>
+                  లేఅవుట్ నియమాలను డౌన్‌లోడ్ చేయండి (
+                  <a
+                    href="https://drive.google.com/open?id=11Tcb-IHwyw98HJRwspUXtjyLfULFM_KP"
+                    >ఆంగ్ల,
+                  </a>
+                  <a
+                    href="https://drive.google.com/open?id=11Thu__HzoiTq0TJa0bn206otbw0Aja5Q"
+                    >తెలుగు
+                  </a>
+                  మరియు
+                  <a
+                    href="https://drive.google.com/open?id=11UezOZ1mQBK9Ep2g3ZsqRWC7ucWb5eIu"
+                    >ఉర్దూ</a
+                  >)
+                </li>
+              </ul>
+            </div>
+            <div
+              class="col-12 col-lg-6 block__73422 order-lg-1"
+              style="background-image: url('../images/rules.jpeg');"
+              data-aos="fade-right"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section" id="services-section">
+        <div class="container">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+              <div class="block-heading-1">
+                <h2>ఉత్తమ లక్షణాలు</h2>
+                <!-- <p>
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p> -->
+              </div>
+            </div>
+          </div>
+          <div class="owl-carousel owl-all">
+            <div class="block__35630">
+              <div class="icon mb-0">
+                <span class="icon-wifi2"></span>
+              </div>
+              <h3 class="mb-3">ఆన్‌లైన్ దరఖాస్తు</h3>
+              <p>
+                పౌరులు తెలంగాణ స్టేట్ బిల్డింగ్ పర్మిషన్ అప్రూవల్ మరియు సెల్ఫ్
+                సర్టిఫికేషన్ సిస్టమ్‌లో పూర్తిగా ఆన్‌లైన్‌లో దరఖాస్తు
+                చేసుకోవచ్చు.
+              </p>
+            </div>
+            <div class="block__35630">
+              <div class="icon mb-0">
+                <span class="icon-cogs"></span>
+              </div>
+              <h3 class="mb-3">సరళీకృత ప్రక్రియ</h3>
+              <p>
+                పౌరులు సంక్లిష్టమైన రూపాలను పూరించాల్సిన అవసరం లేదు మరియు సంబంధం
+                లేని ప్రశ్నలకు సమాధానం ఇవ్వాలి. మా సిస్టమ్ అవసరమైన సంబంధిత
+                ప్రశ్నలను కనుగొంటుంది మరియు అవి మాత్రమే చూపబడతాయి.
+              </p>
+            </div>
+            <div class="block__35630">
+              <div class="icon mb-0">
+                <span class="icon-shield"></span>
+              </div>
+              <h3 class="mb-3">సురక్షితం & భద్రత</h3>
+              <p>
+                వెబ్‌సైట్‌లో చేసిన అన్ని లావాదేవీలు గుప్తీకరించబడతాయి మరియు
+                అందువల్ల సురక్షితం.
+              </p>
+            </div>
+            <div class="block__35630">
+              <div class="icon mb-0">
+                <span class="icon-list-ol"></span>
+              </div>
+              <h3 class="mb-3">3-స్టెప్ ప్రాసెస్</h3>
+              <p>
+                వర్తించు-అప్‌లోడ్-పే, మీ అనుమతులను స్వీకరించడానికి 3 సులభమైన
+                దశలు.
+              </p>
+            </div>
+            <div class="block__35630">
+              <div class="icon mb-0">
+                <span class="icon-hand-o-up"></span>
+              </div>
+              <h3 class="mb-3">దాని రకమైన మొదటిది</h3>
+              <p>
+                ఈ ప్రక్రియను పూర్తిగా ఆన్‌లైన్‌లో అమలు చేసిన మొదటి ప్రభుత్వం
+                మేము.
+              </p>
+            </div>
+            <div class="block__35630">
+              <div class="icon mb-0">
+                <span class="icon-mobile"></span>
+              </div>
+              <h3 class="mb-3">మొబైల్ బాధ్యతాయుతంగా</h3>
+              <p>
+                ఇంటర్నెట్ కనెక్షన్ ఉన్న ఏదైనా కంప్యూటర్, టాబ్లెట్ లేదా
+                స్మార్ట్‌ఫోన్ నుండి మీరు దరఖాస్తు చేసుకోవచ్చు.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section  bg-light" id="team-section">
+        <div class="container">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+              <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                <h2>మా నాయకులు</h2>
+                <p>
+                  తెలంగాణ రాష్ట్రం – బి పాస్ యొక్క ఆవిష్కరణ మరియు ప్రమోషన్ వెనుక
+                  ఉన్న గొప్ప మనసులు.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="owl-carousel owl-all">
+            <div class="block-team-member-1 text-center rounded h-100">
+              <figure>
+                <img
+                  src="../images/kcr.png"
+                  alt="KCR"
+                  class="img-fluid rounded-circle"
+                />
+              </figure>
+              <h3 class="font-size-20 text-black">
+                Shri. K. Chandrashekar Rao
+              </h3>
+              <span
+                class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"
+                >తెలంగాణ గౌరవనీయ చీఫ్ మినిస్టర్</span
+              >
+            </div>
+            <div class="block-team-member-1 text-center rounded h-100">
+              <figure>
+                <img
+                  src="../images/ktr.jpg"
+                  alt="Image"
+                  class="img-fluid rounded-circle"
+                />
+              </figure>
+              <h3 class="font-size-20 text-black">Shri. K. T. Rama Rao</h3>
+              <span
+                class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"
+                >మునిసిపల్ అడ్మినిస్ట్రేషన్ & అర్బన్ డెవలప్మెంట్ యొక్క గౌరవనీయ
+                మంత్రి</span
+              >
+            </div>
+            <div class="block-team-member-1 text-center rounded h-100">
+              <figure>
+                <img
+                  src="../images/arvindkumar.jpg"
+                  alt="Image"
+                  class="img-fluid rounded-circle"
+                />
+              </figure>
+              <h3 class="font-size-20 text-black">Shri. Arvind Kumar, IAS</h3>
+              <span
+                class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3"
+                >ప్రిన్సిపల్ సెక్రటరీ, మునిసిపల్ అడ్మినిస్ట్రేషన్ & అర్బన్
+                డెవలప్మెంట్</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section bg-light" id="contact-section">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-12 text-center mb-5"
+              data-aos="fade-up"
+              data-aos-delay=""
+            >
+              <div class="block-heading-1">
+                <span>Get In Touch</span>
+                <h2>Contact Us</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
+              <form>
+                <div class="form-group row">
+                  <div class="col-md-6 mb-4 mb-lg-0">
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      class="form-control"
+                      placeholder="First name"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      class="form-control"
+                      placeholder="Last name"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Email address"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="text"
+                      class="form-control"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <textarea
+                      name="message"
+                      id="message"
+                      class="form-control"
+                      placeholder="Write your message."
+                      cols="30"
+                      rows="8"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6 mr-auto">
+                    <input
+                      type="submit"
+                      class="btn btn-block btn-primary text-white py-3 px-5"
+                      value="Send Message"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              class="col-lg-4 ml-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="bg-white p-3 p-md-6">
+                <h3 class="text-black mb-4">Contact Info</h3>
+                <ul class="list-unstyled footer-link">
+                  <li class="d-block mb-3">
+                    <span class="d-block text-black">Head Office:</span>
+                    <span>
+                      Directorate of Town and Country Planning,<br />
+                      Governament of Telangana,<br />
+                      3rd to 5th Floor,<br />
+                      640,AC Guards Opp: PTI Building,<br />Hyderabad -
+                      500004</span
+                    >
+                  </li>
+                  <li class="d-block mb-3">
+                    <span class="d-block text-black">Phone:</span
+                    ><span
+                      ><a href="tel:040-23314622" class="text-black"
+                        >040-2331 4622</a
+                      ></span
+                    >
+                  </li>
+                  <li class="d-block mb-3">
+                    <span class="d-block text-black">Email:</span
+                    ><span
+                      ><a
+                        class="__cf_email__"
+                        href="mailto:dtcp@telangana.gov.in"
+                        >dtcp@telangana.gov.in</a
+                      ></span
+                    >
+                    <span class="d-block"
+                      ><a
+                        class="__cf_email__"
+                        href="mailto:ts-bpass-support@telangana.gov.in"
+                        >ts-bpass-support@telangana.gov.in</a
+                      ></span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="row align-items-center justify-content-center mb-3">
+        <div class="col-2">
+          <a href="https://lrsbrs.hmda.gov.in">LRS</a>
+        </div>
+        <div class="col-2">
+          <a
+            href="https://www.telangana.gov.in/departments/municipal-administration-and-urban-development"
+            >MAUD</a
+          >
+        </div>
+        <div class="col-2">
+          <a href="http://dpms.dtcp.telangana.gov.in/Login.aspx">HMDA</a>
+        </div>
+        <div class="col-2">
+          <a href="./index.html">Terms and conditions</a>
+        </div>
+        <div class="col-2">
+          <a href="./index.html">Website and usage policy</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <div class="border-top">
+              <p class="copyright">
+                Copyright ©2020 Telangana State Building Permission Approval and
+                Self Certification System. All Rights Reserved.
+              </p>
+              <p>
+                v1.5.1 (Last updated : 03/04/2020)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="../js/jquery-3.3.1.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/popper.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/bootstrap.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/owl.carousel.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/jquery.sticky.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/jquery.waypoints.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/jquery.animateNumber.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/jquery.fancybox.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/jquery.easing.1.3.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/aos.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/moment.min.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/main.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/languageManager.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-156171945-1"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script
+      src="../js/fontSizeChanger.js"
+      type="89bce1b35c1b1bc232ae6c30-text/javascript"
+    ></script>
+    <script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156171945-1');
+    </script>
+    <script
+      src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+      data-cf-settings="89bce1b35c1b1bc232ae6c30-|49"
+      defer=""
+    ></script>
+    <script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      setInterval(function(){
+        document.getElementById("date").innerHTML = moment(new Date()).format('ll h:mm a')
+      }, 1000);
+    </script>
+    <script type="89bce1b35c1b1bc232ae6c30-text/javascript">
+      jQuery(document).ready(function(){
+          jQuery("#carousel").owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            margin: 0,
+            autoplayTimeout:4000,
+            autoplayHoverPause:false,
+            nav: false,
+            dots: false
+          });
+          var language = getSelectedLanguage();
+          if(language == '')
+            jQuery("#languageSelectionModal").modal('show');
+          else
+            redirectToLanguageHome(language)
+      });
+    </script>
+  </body>
+</html>

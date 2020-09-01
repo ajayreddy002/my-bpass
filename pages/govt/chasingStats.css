@@ -1,0 +1,16 @@
+.chasing-stat-card .card-body {
+  padding: 1.05rem;
+}
+
+.card-body .col {
+  margin-top: 10px;
+}
+
+.chasing-stat-card .card-footer .col {
+  margin-top: 5px;
+  padding: 0;
+}
+
+.reports {
+  margin-left: 600px;
+}
