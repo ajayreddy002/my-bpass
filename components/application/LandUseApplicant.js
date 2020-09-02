@@ -12,7 +12,7 @@ import axios from 'axios';
 import apiConstants from '../../constants/apiConstants';
 import FileUpload from '../../components/common/file-upload';
 import CustomTooltip from '../../components/CustomTooltip';
-import MapModal from '../../components/application/MapModal'
+import MapModal from '../../components/application/MapModal';
 import { _HttpServices } from '../../apiHelpers/_HttpSevices';
 
 const apiURL = require('../../config/url-front').API_SERVER;
@@ -50,6 +50,7 @@ const LandUseApplicant = ({
   const [passwordShown, setPasswordShown] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [villagesList, setVillagesList] = useState([]);
+  const [coordinateValues, setCoordinateValues] = useState('');
   const router = useRouter()
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -65,10 +66,12 @@ const LandUseApplicant = ({
 			  if(item !== undefined && item.length > 0){
 				  item.map(cord => {
 					  arr.push(cord)
-				  })
-			  }
-		  })
-		  coord = arr.toString();
+					})
+				}
+			})
+			coord = arr.toString();
+			setCoordinateValues(coord)
+			console.log(coord, 'values1234')
 	  }
     // customHandleChange('geoLocation', values);
 }
@@ -468,7 +471,7 @@ const validationSchema = Yup.object().shape({
 			 handleBlur(e);
 			 toggleTooltip();
 		   }} 
-		   value={values.geo_coordinates} />
+		   value={coordinateValues} />
 		   {errors.geo_coordinates && touched.geo_coordinates && <p>{errors.geo_coordinates}</p>}
 		 <svg className="arrow-right" onClick={() => setModalShow(true)} dangerouslySetInnerHTML={{ __html: MapIcon }} />
 		 <span className="map-error-message">Please select the plot geo coordinates to continue</span>

@@ -33,30 +33,39 @@ const CluApplicant = ({
   const [authToken, setAuthToken] = useState(null);
   
 const SignInSchema = Yup.object().shape({
-  applicantName: Yup.string().required('Applicant Name is required'),
-  relationType: Yup.string().required('Type is required'),
-  relationName: Yup.string().required('Relation Name is required'),
-  architectname: Yup.string().required('Name is required'),
-  license: Yup.string().required('License number is required'),
-  aadhaarNumber: Yup.string()
-    .min(12, 'Aadhaar number min 12 digits')
-    .max(12, 'Aadhaar number min 12 digits')
-    .matches(/^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/, 'not valid format (0000 0000 0000)')
-    .required('Aadhaar Number is Required'),
-  mobileNumber: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {message: "Please enter valid number.", excludeEmptyString: false})
-    .required('Mobile Number is required'),
-    architectmobile: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {message: "Please enter valid number.", excludeEmptyString: false})
-    .required('Mobile Number is required'),
-    pinNumber: Yup.string()
-    .matches(/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/, {message: "Please enter valid number.", excludeEmptyString: false})
-    .required('PIN Number is required'),
-  email: Yup.string().email(),
-  contactAddress: Yup.string().required('Contact Address is required'),
-  architectemail: Yup.string().email(),
-  architectaddress: Yup.string().required('Contact Address is required'),
+    applicant_type: Yup.string().required('Applicant Type is required'),
+    applicant_name: Yup.string().required('Applicant Name is required'),
+    relationship_type: Yup.string().required('Type is required'),
+    relationship_name: Yup.string().required('Relation Name is required'),
+    industry: Yup.string().required('Industry is required'),
+    address: Yup.string().required('Contact Address is required'),
+    city: Yup.string().required('City is required'),
+    state: Yup.string().required('State is required'),
+    pin: Yup.string().matches(/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/, {
+        message: "Please enter valid number.",
+        excludeEmptyString: false
+    }).required('PIN Number is required'),
+    mobile: Yup.string().matches(/^[6-9]\d{9}$/, {
+        message: "Please enter valid number.",
+        excludeEmptyString: false
+    }).required('Mobile Number is required'),
+    email: Yup.string()
+	  .email('Invalid email')
+	  .required('Email is required'),
+    consultant_type: Yup.string().required('Consultant Type is required'),
+    license_number: Yup.string().required('License number is required'),
+    arct_name: Yup.string().required('Architect Name is required'),
+    arct_address: Yup.string().required('Contact Address is required'),
+
+    arct_mobile: Yup.string().matches(/^[6-9]\d{9}$/, {
+        message: "Please enter valid number.",
+        excludeEmptyString: false
+    }).required('Mobile Number is required'),
+    arct_email: Yup.string()
+	  .email('Invalid email')
+	  .required('Email is required'),
 });
+
 
   useEffect(() => {
     if(currentStep === 1){
@@ -93,47 +102,48 @@ const SignInSchema = Yup.object().shape({
         <h3>{getTranslatedText('Applicant Information')}</h3>
       </div>
         <Formik
-          initialValues={{ 
-            applicantType: '',
-            applicantName: '',
-            relationType: '',
-            relationName: '',
+          initialValues = {{ 
+            applicant_type: '',
+            applicant_name: '',
+            relationship_type: '',
+            relationship_name: '',
             industry: '',
-            mobileNumber: '',
-            email: '',
-            contactAddress: '',
+            address: '',
             city: '',
             state: '',
-            pinNumber: '',
-            architectname: '',
-            consultant: '',
-            license: '',
-            architectaddress: '',
-            architectmobile: '',
-            architectemail: ''
+            pin: '',
+            mobile: '',
+            email: '',
+            consultant_type: '',
+            license_number: '',
+            arct_name: '',
+            arct_address: '',
+            arct_mobile: '',
+            arct_email: '',
           }}
+
           validationSchema={SignInSchema}
           onSubmit={async (values, { setSubmitting }) => {
               
               const data = {
                 "completed_steps": 1,
-                "applicant_type": values.applicantType,
-                "first_name": values.applicantName,
-                "mobile": "91"+values.mobileNumber,
-                "email": values.email,
+                "applicant_type": values.applicant_type,
+                "applicant_name": values.applicant_name,
+                "relationship_type": values.relationship_type,
+                "relationship_name": values.relationship_name,
                 "industry": values.industry,
-                "relationship_type": values.relationType,
-                "relationship_name": values.relationName,
-                "contact_address": values.contactAddress,
+                "address": values.address,
                 "city" : values.city,
                 "state" : values.state,
-                "pin_number": values.pinNumber,
-                "architect_name": values.architectname,
-                "consultant": values.consultant,
-                "license_no": values.license,
-                "architect_address": values.architectaddress,
-                "architect_mobile": values.architectmobile,
-                "architect_email": values.architectemail
+                "pin": values.pin,
+                "mobile": "91"+values.mobile,
+                "email": values.email,
+                "consultant_type": values.consultant_type,
+                "license_number": values.license_number,
+                "arct_name": values.arct_name,
+                "arct_address": values.arct_address,
+                "arct_mobile": values.arct_mobile,
+                "arct_email": values.arct_email
                 
               }
 
@@ -214,7 +224,7 @@ const SignInSchema = Yup.object().shape({
                     <InputGroup.Prepend>
                       <div className="selected-box">
                         <Form.Control as="select"
-                          name="applicantType" 
+                          name="applicant_type" 
                           onChange={e => {
                             handleChange(e);
                             if (e.target.value.toLowerCase() === 'm/s') {
@@ -226,7 +236,7 @@ const SignInSchema = Yup.object().shape({
                             }
                           }} 
                           onBlur={handleBlur}
-                          value={values.applicantType}>
+                          value={values.applicant_type}>
                           <option>{Object.entries(applicantTypes).length > 0 ? 'Select Type': 'Loading...'}</option>
                           {Object.entries(applicantTypes).length > 0 &&
                             Object.entries(applicantTypes).map(([key, value], index) => 
@@ -239,14 +249,14 @@ const SignInSchema = Yup.object().shape({
                     </InputGroup.Prepend>
                     <Form.Control 
                       type="text"
-                      name="applicantName" 
-                      className={errors.applicantName && touched.applicantName && 'has-error'}
+                      name="applicant_name" 
+                      className={errors.applicant_name && touched.applicant_name && 'has-error'}
                       placeholder="First Name" 
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.applicantName} />
+                      value={values.applicant_name} />
                   </InputGroup>
-                      {errors.applicantName && touched.applicantName && <p>{errors.applicantName}</p>}
+                      {errors.applicant_name && touched.applicant_name && <p>{errors.applicant_name}</p>}
               </Form.Group>
               <Form.Group className="document-box">
                   <Form.Label htmlFor="inlineFormInputGroupUsername2">{getTranslatedText('label.relationship')}</Form.Label>
@@ -254,10 +264,10 @@ const SignInSchema = Yup.object().shape({
                     <InputGroup.Prepend>
                       <div className="selected-box">
                         <Form.Control as="select"
-                          name="relationType" 
+                          name="relationship_type" 
                           onChange={(e) => {handleChange(e), relationTypeChange(e.target.value)}} 
                           onBlur={handleBlur}
-                          value={values.relationType}>
+                          value={values.relationship_type}>
                           <option>{Object.entries(relationTypes).length > 0 ? 'Select Type': 'Loading...'}</option>
                           {Object.entries(relationTypes).length > 0 &&
                           Object.entries(relationTypes).map(([key, value], index) => 
@@ -270,14 +280,14 @@ const SignInSchema = Yup.object().shape({
                     </InputGroup.Prepend>
                     <FormControl 
                       type="text" 
-                      name="relationName"
-                      className={errors.relationName && touched.relationName && 'has-error'}
+                      name="relationship_name"
+                      className={errors.relationship_name && touched.relationship_name && 'has-error'}
                       placeholder="Name" 
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.relationName} />
+                      value={values.relationship_name} />
                   </InputGroup>
-                  {errors.relationName && touched.relationName && <p>{errors.relationName}</p>}
+                  {errors.relationship_name && touched.relationship_name && <p>{errors.relationship_name}</p>}
                 </Form.Group>
               <Form.Group controlId="industry">
                 <Form.Label>{'Name of Industry'}</Form.Label>
@@ -296,13 +306,13 @@ const SignInSchema = Yup.object().shape({
                 <Form.Control 
                       as="textarea" 
                       rows="3" 
-                      name="contactAddress"
+                      name="address"
                       placeholder="Type your address" 
-                      className={errors.contactAddress && touched.contactAddress && 'has-error'}
+                      className={errors.address && touched.address && 'has-error'}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.contactAddress} />
-                      {errors.contactAddress && touched.contactAddress && <p>{errors.contactAddress}</p>}
+                      value={values.address} />
+                      {errors.address && touched.address && <p>{errors.address}</p>}
               </Form.Group>
               <Form.Group controlId="city">
                 <Form.Label>{'City'}</Form.Label>
@@ -332,14 +342,14 @@ const SignInSchema = Yup.object().shape({
                 <Form.Label>{'PIN'}</Form.Label>
                 <Form.Control 
                   type="text" 
-                  name="pinNumber" 
+                  name="pin" 
                   maxLength="6" 
-                  className={errors.pinNumber && touched.pinNumber && 'has-error'}
+                  className={errors.pin && touched.pin && 'has-error'}
                   placeholder="Enter PIN Number"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.pinNumber} />
-                  {errors.pinNumber && touched.pinNumber && <p>{errors.pinNumber}</p>}
+                  value={values.pin} />
+                  {errors.pin && touched.pin && <p>{errors.pin}</p>}
               </Form.Group>
               <Form.Group controlId="phonenumber">
                 <Form.Label>{getTranslatedText('label.mobile_number')}</Form.Label>
@@ -348,13 +358,13 @@ const SignInSchema = Yup.object().shape({
                   <Form.Control
                     type="type"
                     maxLength="10" 
-                    name="mobileNumber"
-                    className={errors.mobileNumber && touched.mobileNumber && 'has-error'} 
+                    name="mobile"
+                    className={errors.mobile && touched.mobile && 'has-error'} 
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.mobileNumber} />
+                    value={values.mobile} />
                 </div>
-                {errors.mobileNumber && touched.mobileNumber && <p>{errors.mobileNumber}</p>}
+                {errors.mobile && touched.mobile && <p>{errors.mobile}</p>}
               </Form.Group>
               <Form.Group controlId="Email">
                 <Form.Label>{getTranslatedText('label.email_id')}</Form.Label>
@@ -371,11 +381,11 @@ const SignInSchema = Yup.object().shape({
                <div className="main-title">
               <h3>{getTranslatedText('Architect/ Engineer/ Surveyor Information')}</h3>
               </div>
-              <Form.Group controlId="consultant">
+              <Form.Group controlId="consultant_type">
                 <Form.Label>{'Consultant Type'}</Form.Label>
                 <Form.Control 
                       as="select"
-                      className={errors.consultant && touched.consultant && 'has-error'}
+                      className={errors.consultant_type && touched.consultant_type && 'has-error'}
                       onChange={handleChange}
                       onBlur={handleBlur}>
                       <option >Select</option>
@@ -386,73 +396,73 @@ const SignInSchema = Yup.object().shape({
                       <option value="5">Surveyor 2</option>
                       <option value="6">Town Planner</option>
                 </Form.Control>
-                      {errors.consultant && touched.consultant && <p>{errors.consultant}</p>}
+                      {errors.consultant_type && touched.consultant_type && <p>{errors.consultant_type}</p>}
               </Form.Group>
-              <Form.Group controlId="licenseno">
+              <Form.Group controlId="license_number">
                 <Form.Label>{'License No'}</Form.Label>
                 <Form.Control 
                       type="text"
-                      name="license"
+                      name="license_number"
                       placeholder="Type your License No" 
-                      className={errors.license && touched.license && 'has-error'}
+                      className={errors.license_number && touched.license_number && 'has-error'}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.license} />
-                      {errors.license && touched.license && <p>{errors.license}</p>}
+                      value={values.license_number} />
+                      {errors.license_number && touched.license_number && <p>{errors.license_number}</p>}
               </Form.Group> 
-              <Form.Group controlId="architectname">
+              <Form.Group controlId="arct_name">
                 <Form.Label>{'Name'}</Form.Label>
                 <Form.Control 
                   type="text" 
-                  name="architectname" 
-                  className={errors.architectname && touched.architectname && 'has-error'}
+                  name="arct_name" 
+                  className={errors.arct_name && touched.arct_name && 'has-error'}
                   placeholder="Enter Name"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.architectname} />
-                  {errors.architectname && touched.architectname && <p>{errors.architectname}</p>}
+                  value={values.arct_name} />
+                  {errors.arct_name && touched.arct_name && <p>{errors.arct_name}</p>}
               </Form.Group>
-              <Form.Group controlId="architectaddress">
+              <Form.Group controlId="arct_address">
                 <Form.Label>{getTranslatedText('label.contact_address')}</Form.Label>
                 <Form.Control 
                       as="textarea" 
                       rows="3" 
-                      name="architectaddress"
+                      name="arct_address"
                       placeholder="Type your address" 
-                      className={errors.architectaddress && touched.architectaddress && 'has-error'}
+                      className={errors.arct_address && touched.arct_address && 'has-error'}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.architectaddress} />
-                      {errors.architectaddress && touched.architectaddress && <p>{errors.architectaddress}</p>}
+                      value={values.arct_address} />
+                      {errors.arct_address && touched.arct_address && <p>{errors.arct_address}</p>}
               </Form.Group>
-              <Form.Group controlId="architectmobile">
+              <Form.Group controlId="arct_mobile">
                 <Form.Label>{getTranslatedText('label.mobile_number')}</Form.Label>
                 <div className="mobile-number-block">
                   <span>+91</span>
                   <Form.Control
                     type="type"
                     maxLength="10" 
-                    name="architectmobile"
-                    className={errors.architectmobile && touched.architectmobile && 'has-error'} 
+                    name="arct_mobile"
+                    className={errors.arct_mobile && touched.arct_mobile && 'has-error'} 
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.architectmobile} />
+                    value={values.arct_mobile} />
                 </div>
-                {errors.architectmobile && touched.architectmobile && <p>{errors.architectmobile}</p>}
+                {errors.arct_mobile && touched.arct_mobile && <p>{errors.arct_mobile}</p>}
               </Form.Group>
-              <Form.Group controlId="architectemail">
+              <Form.Group controlId="arct_email">
                 <Form.Label>{getTranslatedText('label.email_id')}</Form.Label>
                 <Form.Control 
                   type="email" 
-                  name="architectemail"
-                  className={errors.architectemail && touched.architectemail && 'has-error'} 
+                  name="arct_email"
+                  className={errors.arct_email && touched.arct_email && 'has-error'} 
                   placeholder="Your email id" 
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.architectemail} />
-                  {errors.architectemail && touched.architectemail && <p>{errors.architectemail}</p>}
+                  value={values.arct_email} />
+                  {errors.arct_email && touched.arct_email && <p>{errors.arct_email}</p>}
               </Form.Group> 
-              <Button type="submit" disabled={isSubmitting} onClick={event =>  window.location.href='/success'}>
+              <Button type="submit" disabled={isSubmitting}>
                 <span>{getTranslatedText('button.save_continue')} </span>
                 {isSubmitting?
                   <Spinner
