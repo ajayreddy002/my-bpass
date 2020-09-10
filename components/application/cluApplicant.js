@@ -125,85 +125,117 @@ const SignInSchema = Yup.object().shape({
           validationSchema={SignInSchema}
           onSubmit={async (values, { setSubmitting }) => {
               
-              const data = {
-                "completed_steps": 1,
-                "applicant_type": values.applicant_type,
-                "applicant_name": values.applicant_name,
-                "relationship_type": values.relationship_type,
-                "relationship_name": values.relationship_name,
-                "industry": values.industry,
-                "address": values.address,
-                "city" : values.city,
-                "state" : values.state,
-                "pin": values.pin,
-                "mobile": "91"+values.mobile,
-                "email": values.email,
-                "consultant_type": values.consultant_type,
-                "license_number": values.license_number,
-                "arct_name": values.arct_name,
-                "arct_address": values.arct_address,
-                "arct_mobile": values.arct_mobile,
-                "arct_email": values.arct_email
+              // const data = {
+              //   "completed_steps": 1,
+              //   "applicant_type": values.applicant_type,
+              //   "applicant_name": values.applicant_name,
+              //   "relationship_type": values.relationship_type,
+              //   "relationship_name": values.relationship_name,
+              //   "industry": values.industry,
+              //   "address": values.address,
+              //   "city" : values.city,
+              //   "state" : values.state,
+              //   "pin": values.pin,
+              //   "mobile": "91"+values.mobile,
+              //   "email": values.email,
+              //   "consultant_type": values.consultant_type,
+              //   "license_number": values.license_number,
+              //   "arct_name": values.arct_name,
+              //   "arct_address": values.arct_address,
+              //   "arct_mobile": values.arct_mobile,
+              //   "arct_email": values.arct_email
                 
-              }
+              // }
 
-              if(window.confirm('Details once saved cannot be edited. Do you want to continue?')){
-                if(authToken){
-                  const config = {
-                    headers: {
-                      'Authorization': 'Bearer ' + authToken,
-                      'Accept' : '*/*'
-                    }
-                  };
-                  await axios.post(apiURL + apiConstants.CITIZEN_APPLICATION.URL, data, config)
-                  .then(function (response) {
-                      console.log('fsfsd', response)
-                    if(response.data.success){
-                      localStorage.setItem('application-id', response.data.data.application.id)
-                      changeStep(2);
-                      router.push(`/application/cluPlot`)
-                    }else{
-                      toast.error(response.data.message, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                      });
-                    }
-                    setTimeout(() => {
-                      setSubmitting(false);
-                    }, 5000)
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
-                }else{
-                  await axios.post(apiURL + apiConstants.APPLICATION.URL, data)
-                  .then(function (response) {
-                    if(response.data.success){
-                      localStorage.setItem('auth-token', response.data.data.token)
-                      localStorage.setItem('application-id', response.data.data.application.id)
-                      // changeStep(2);
-                      router.push(`/application/cluPlot`)
-                    }else{
-                      toast.error(response.data.message, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                      });
-                    }
-                    setTimeout(() => {
-                      setSubmitting(false);
-                    }, 2000)
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                    setSubmitting(false);
-                  });
-                }
-              }else{
-                setSubmitting(false);
-              }
-              
+              // if(window.confirm('Details once saved cannot be edited. Do you want to continue?')){
+              //   if(authToken){
+              //     const config = {
+              //       headers: {
+              //         'Authorization': 'Bearer ' + authToken,
+              //         'Accept' : '*/*'
+              //       }
+              //     };
+              //     await axios.post(apiURL + apiConstants.CITIZEN_APPLICATION.URL, data, config)
+              //     .then(function (response) {
+              //         console.log('fsfsd', response)
+              //       if(response.data.success){
+              //         localStorage.setItem('application-id', response.data.data.application.id)
+              //         changeStep(2);
+              //         router.push(`/application/cluPlot`)
+              //       }else{
+              //         toast.error(response.data.message, {
+              //           position: "top-right",
+              //           autoClose: 5000,
+              //           hideProgressBar: false,
+              //         });
+              //       }
+              //       setTimeout(() => {
+              //         setSubmitting(false);
+              //       }, 5000)
+              //     })
+              //     .catch(function (error) {
+              //       console.log(error);
+              //     });
+              //   }else{
+              //     await axios.post(apiURL + apiConstants.APPLICATION.URL, data)
+              //     .then(function (response) {
+              //       if(response.data.success){
+              //         localStorage.setItem('auth-token', response.data.data.token)
+              //         localStorage.setItem('application-id', response.data.data.application.id)
+              //         // changeStep(2);
+              //         router.push(`/application/cluPlot`)
+              //       }else{
+              //         toast.error(response.data.message, {
+              //           position: "top-right",
+              //           autoClose: 5000,
+              //           hideProgressBar: false,
+              //         });
+              //       }
+              //       setTimeout(() => {
+              //         setSubmitting(false);
+              //       }, 2000)
+              //     })
+              //     .catch(function (error) {
+              //       console.log(error);
+              //       setSubmitting(false);
+              //     });
+              //   }
+              // }else{
+              //   setSubmitting(false);
+              // }
+			swal({
+				title: "Are you sure?",
+				text: "Details once saved cannot be edited. Do you want to continue?",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+				closeOnClickOutside: false
+			  })
+			  .then((willDelete) => {
+				if (willDelete) {
+				  axios.post('http://localhost:3030/architect', values)
+				  .then(
+					  data => {
+						  console.log(data.data)
+						  if(data.data !== undefined && data.data.applicant_id){
+							// swal("Poof! Your imaginary file has been deleted!", {
+							// 	icon: "success",
+							// 	closeOnClickOutside: false
+							//   });
+							router.push('/success')
+						  } else{
+							  toast.error('Enter valid details')
+						  }
+					  }
+				  ).catch(e => {
+					  console.log(e);
+					  swal("Something went wrong ", {
+						icon: "fail",
+						closeOnClickOutside: false
+					  });
+				  })
+				}
+			  });
           }}
         >
           {({

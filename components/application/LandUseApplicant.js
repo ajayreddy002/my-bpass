@@ -182,13 +182,17 @@ const validationSchema = Yup.object().shape({
 		  setVillagesList([])
 	  }
   }
-  const getSelectedVillage = (village, setFieldValue) => {
+  const getSelectedVillage = (village, setFieldValue, errors) => {
 	  if(village !== undefined){
 		  setFieldValue('district', village.district);
 		  setFieldValue('mandal', village.mandal);
 		  setFieldValue('village', village.village);
 		  setFieldValue('muncipality', village.ulb_name);
 		  setVillagesList([]);
+		  errors.district = '';
+		  errors.mandal = '';
+		  errors.village = '';
+		  errors.muncipality = '';
 	  }
   }
   return (
@@ -207,6 +211,7 @@ const validationSchema = Yup.object().shape({
 			   payLoad = values
 		   }
 		   if(values.geo_coordinates !== ''){
+			setSubmitting = true;
 			swal({
 				title: "Are you sure?",
 				text: "Details once saved cannot be edited. Do you want to continue?",
@@ -241,6 +246,7 @@ const validationSchema = Yup.object().shape({
 				}
 			  });
 		   } else{
+			setSubmitting = false;
 			   toast.warn('Coordinates required');
 		   }
        }}
@@ -366,7 +372,7 @@ const validationSchema = Yup.object().shape({
 	   {villagesList.length > 0 &&
 	   <div className="villages--dropdown">
 		   {villagesList.map(item => 
-			<p key={item .id} onClick={() => getSelectedVillage(item, setFieldValue)}>{item.village}</p>
+			<p key={item .id} onClick={() => getSelectedVillage(item, setFieldValue, errors)}>{item.village}</p>
 			)}
 	   </div>
 	   }
